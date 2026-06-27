@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="hr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MojBiznis.online — Pretvori ideju u live online produkt</title>
+  <meta name="description" content="Korak-po-korak metoda koja te vodi od ideje do online produkta koji prodaje. Bez programerskog backgrounda. Ista metoda po kojoj je izgrađen kvik.online." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MojBiznis.online — Pretvori ideju u live online produkt" />
+  <meta property="og:description" content="Korak-po-korak metoda od ideje do online produkta koji prodaje. 37€ lifetime." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mojbiznis.online" />
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#111827",
+            muted: "#6b7280",
+            paper: "#ffffff",
+            cream: "#fff7ed",
+            navy: "#1a2332",
+            navyDeep: "#0f172a",
+            card: "#243044",
+            cardBorder: "#2e3d52",
+            accent: "#f97316",
+            accentHover: "#ea6c0a",
+            success: "#16a34a",
+            danger: "#dc2626",
+            borderLight: "#e5e7eb",
+            softGray: "#f9fafb",
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightish: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-item.open .faq-content { max-height: 500px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.2s ease; }
+  </style>
+</head>
+<body class="bg-paper text-ink">
+
+  <!-- ============================== NAVBAR ============================== -->
+  <nav id="navbar" class="sticky top-0 z-50 bg-paper transition-shadow">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="text-xl font-bold tracking-tightish">
+        <span class="text-ink">MojBiznis</span><span class="text-accent">.online</span>
+      </a>
+      <a href="#pricing" class="bg-accent hover:bg-accentHover text-white font-semibold px-5 py-2.5 rounded-md text-sm transition-colors">
+        Kupi pristup — 37€
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="bg-paper">
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-start">
+
+      <!-- LEFT -->
+      <div>
+        <p class="text-accent text-xs font-bold uppercase tracking-widest mb-5">
+          Za ljude koji imaju ideju vrijednu gradnje — ali je još nisu izgradili
+        </p>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tightish text-ink mb-6">
+          Pretvori ideju<br/>u live online produkt.
+        </h1>
+        <p class="text-lg text-muted leading-relaxed mb-8">
+          MojBiznis.online je korak-po-korak metoda koja te vodi od ideje do stvari koja je online i prodaje — ideja → gradnja → marketing → naplata. AI radi težak dio, ti donosiš odluke.
+        </p>
+        <a href="https://buy.stripe.com/PLACEHOLDER" class="block w-full md:inline-block md:w-auto bg-accent hover:bg-accentHover text-white font-semibold text-center px-8 py-4 rounded-md text-base transition-colors mb-5">
+          Želim metodu — 37€ jednokratno
+        </a>
+        <p class="text-sm text-muted mb-3">
+          <span class="text-accent font-semibold">✓</span> Ista metoda po kojoj je izgrađen <span class="font-semibold text-ink">kvik.online</span> — live SaaS s Fiskalizacijom 1.0
+        </p>
+        <p class="text-sm text-muted">
+          <span class="text-accent">★★★★★</span>&nbsp;&nbsp;Bez hype-a. Bez lažnih timera. Bez BS.
+        </p>
+      </div>
+
+      <!-- RIGHT — pricing card -->
+      <div class="bg-paper border border-borderLight rounded-xl shadow-sm p-8 md:sticky md:top-24">
+        <h3 class="text-accent text-xl font-bold mb-1">MojBiznis.online</h3>
+        <p class="text-muted text-sm mb-6">Lifetime pristup</p>
+        <div class="border-t border-borderLight pt-6 space-y-4 mb-6">
+          <div class="flex gap-3">
+            <span class="text-accent font-bold shrink-0">✓</span>
+            <span class="text-ink text-sm">Kompletni 4-fazni sustav: ideja → gradnja → marketing → naplata</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-accent font-bold shrink-0">✓</span>
+            <span class="text-ink text-sm">AI prompt sustav za svaku fazu</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-accent font-bold shrink-0">✓</span>
+            <span class="text-ink text-sm">Korak-po-korak vodiči i materijali</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-accent font-bold shrink-0">✓</span>
+            <span class="text-ink text-sm">Founding member pristup + direktan kontakt</span>
+          </div>
+        </div>
+        <div class="border-t border-borderLight pt-6 mb-6">
+          <div class="flex items-baseline gap-2">
+            <span class="text-5xl font-bold text-ink">37€</span>
+            <span class="text-muted text-sm">Jednokratno</span>
+          </div>
+        </div>
+        <a href="https://buy.stripe.com/PLACEHOLDER" class="block w-full bg-accent hover:bg-accentHover text-white font-semibold text-center px-6 py-3.5 rounded-md transition-colors">
+          Kupi instant pristup
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== PROBLEM ============================== -->
+  <section class="bg-paper">
+    <div class="max-w-3xl mx-auto px-6 py-16 md:py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-10 text-center">Već znam gdje si zapeo.</h2>
+
+      <div class="space-y-6 text-lg text-ink/80 leading-relaxed">
+        <p>Imaš ideju. Možda čak i znaš da bi mogla raditi. Ali između „imam ideju" i „imam nešto živo na internetu što ljudi koriste" stoji zid od pojmova koje nikad nisi morao razumjeti — Supabase, Vercel, Stripe, deploy, DNS — i tihi osjećaj da je to za „prave programere", a ne za tebe.</p>
+        <p>Pa guglaš. Gledaš tutorijale. Možda si i kupio neki tečaj. I dalje sjediš na istoj ideji, ne siguran ni odakle se kreće, a kamoli kako se završava.</p>
+        <p class="font-semibold text-ink">Problem nikad nije bio u tome da nisi dovoljno pametan. Problem je što ti nitko nije dao jasan put — onaj koji ne traži da prvo postaneš developer.</p>
+      </div>
+
+      <div class="mt-10 bg-cream border-l-4 border-accent rounded-r-lg px-6 py-5">
+        <p class="text-ink italic text-lg">Utapate se u opcijama, a gladni ste jasnoće.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== STORY ============================== -->
+  <section class="bg-paper">
+    <div class="max-w-3xl mx-auto px-6 py-16 md:py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-ink mb-10 text-center">Metoda koja je već izgradila pravi SaaS.</h2>
+
+      <div class="space-y-6 text-lg text-ink/80 leading-relaxed">
+        <p>Ovu metodu nisam izmislio za tečaj. Prvo je izgradila produkt, pa tek onda postala tečaj.</p>
+        <p>Čovjek koji je krenuo nije bio informatičar. Kad smo počeli, nije znao što je React, što je JSON, što je Supabase ni čemu služi Vercel. Radio je svoj 9–5. Gradio je navečer, poslije posla.</p>
+        <p>Deset tjedana kasnije imao je <span class="font-semibold text-ink">kvik.online</span> — live aplikaciju za paušalne obrtnike, spojenu na Fiskalizaciju 1.0, s vlastitim IBAN-om i Stripe naplatom. Ne prototip. Produkt koji radi i naplaćuje.</p>
+      </div>
+
+      <!-- stat strip -->
+      <div class="mt-10 bg-cream rounded-lg px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div>
+          <div class="text-3xl font-bold text-accent mb-1">10 tjedana</div>
+          <div class="text-sm text-muted">od nule do live SaaS-a</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-accent mb-1">162.000+</div>
+          <div class="text-sm text-muted">paušalnih obrtnika u HR</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-accent mb-1">0€</div>
+          <div class="text-sm text-muted">prethodnog znanja programiranja</div>
+        </div>
+      </div>
+
+      <p class="mt-10 text-lg text-ink/80 leading-relaxed">MojBiznis.online je ta metoda, prvi put zapisana i posložena tako da je možeš slijediti sam.</p>
+    </div>
+  </section>
+
+  <!-- ============================== AI SECTION (DARK) ============================== -->
+  <section class="bg-navy text-white">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-2">AI je sve promijenio.</h2>
+      <h3 class="text-2xl md:text-3xl font-bold text-accent text-center mb-8">Ali ne kako misliš.</h3>
+
+      <p class="text-center text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed">
+        Sad ćeš pomisliti: „Znači prebacim ideju u ChatGPT i on mi napravi aplikaciju." Ne. To što većina radi s AI-em je copy-paste slop — generičke stvari koje ne rade kad ih spojiš u cjelinu.
+      </p>
+
+      <!-- compare cards -->
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- WRONG -->
+        <div class="bg-card border border-cardBorder rounded-xl p-7">
+          <p class="text-danger text-xs font-bold uppercase tracking-widest mb-3">Pogrešan način</p>
+          <h4 class="text-xl font-bold mb-5">„AI Slop"</h4>
+          <ul class="space-y-3 text-white/80">
+            <li class="flex gap-3"><span class="text-danger font-bold">✕</span><span>Generičko i robotski</span></li>
+            <li class="flex gap-3"><span class="text-danger font-bold">✕</span><span>Nema stvarnog znanja</span></li>
+            <li class="flex gap-3"><span class="text-danger font-bold">✕</span><span>Information dump</span></li>
+          </ul>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="bg-card border border-cardBorder border-t-2 border-t-accent rounded-xl p-7">
+          <p class="text-accent text-xs font-bold uppercase tracking-widest mb-3">MojBiznis metoda</p>
+          <h4 class="text-xl font-bold mb-5">AI kao razvojni tandem</h4>
+          <ul class="space-y-3 text-white/80">
+            <li class="flex gap-3"><span class="text-accent font-bold">✓</span><span>AI ko-pilot za gradnju</span></li>
+            <li class="flex gap-3"><span class="text-accent font-bold">✓</span><span>Minimal man-in-the-loop princip</span></li>
+            <li class="flex gap-3"><span class="text-accent font-bold">✓</span><span>Ti odlučuješ, AI izvršava</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="text-center italic text-white/60 mt-10 max-w-2xl mx-auto">
+        Zamisli dobrog ghostwritera. On ne izmišlja tvoje ideje — izvlači ih iz tebe i pomaže ti ih komunicirati jasno. To je naš AI prompt sustav.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== FOUR PHASES ============================== -->
+  <section class="bg-paper">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-ink mb-3">Što točno dobiješ.</h2>
+      <p class="text-center text-muted mb-12 max-w-2xl mx-auto">MojBiznis metoda je posložena u 4 faze. Većina polaznika završi Fazu 1 u prvom sjedanju.</p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- FAZA 1 -->
+        <div class="bg-paper border border-borderLight rounded-xl p-7 shadow-sm">
+          <p class="text-accent text-xs font-bold uppercase tracking-widest mb-3">Faza 1</p>
+          <h3 class="text-xl font-bold mb-3 text-ink">Ideja i validacija</h3>
+          <p class="text-muted leading-relaxed mb-5">Kako pronaći nišu, provjeriti je kroz Google Trends i Facebook grupe, napraviti competitor analizu i donijeti odluke o domeni i brandingu — prije nego potrošiš i jedan sat na gradnju.</p>
+          <div class="border-t border-borderLight pt-4">
+            <p class="text-sm"><span class="font-bold text-ink">Odlaziš s:</span> <span class="text-ink/70">Validiranom idejom i jasnim konceptom.</span></p>
+          </div>
+        </div>
+
+        <!-- FAZA 2 -->
+        <div class="bg-paper border border-borderLight rounded-xl p-7 shadow-sm">
+          <p class="text-accent text-xs font-bold uppercase tracking-widest mb-3">Faza 2</p>
+          <h3 class="text-xl font-bold mb-3 text-ink">Gradnja (vibe coding)</h3>
+          <p class="text-muted leading-relaxed mb-5">Stack odluke (Next.js, Supabase, Vercel), MVP u 9 koraka, deploy i infrastruktura. AI kao razvojni tandem uz minimal man-in-the-loop princip kroz cijelu fazu.</p>
+          <div class="border-t border-borderLight pt-4">
+            <p class="text-sm"><span class="font-bold text-ink">Odlaziš s:</span> <span class="text-ink/70">Live digitalnim produktom, spremnim za prodaju.</span></p>
+          </div>
+        </div>
+
+        <!-- FAZA 3 -->
+        <div class="bg-paper border border-borderLight rounded-xl p-7 shadow-sm">
+          <p class="text-accent text-xs font-bold uppercase tracking-widest mb-3">Faza 3</p>
+          <h3 class="text-xl font-bold mb-3 text-ink">Marketing i distribucija</h3>
+          <p class="text-muted leading-relaxed mb-5">Facebook grupe kao besplatni kanal, value-first pristup, SEO kroz sadržaj i interlinking, competitor research uz AI alate, i kako birati između Meta / TikTok / YouTube / X.</p>
+          <div class="border-t border-borderLight pt-4">
+            <p class="text-sm"><span class="font-bold text-ink">Odlaziš s:</span> <span class="text-ink/70">Live funnel-om i strategijom distribucije.</span></p>
+          </div>
+        </div>
+
+        <!-- FAZA 4 -->
+        <div class="bg-paper border border-borderLight rounded-xl p-7 shadow-sm">
+          <p class="text-accent text-xs font-bold uppercase tracking-widest mb-3">Faza 4</p>
+          <h3 class="text-xl font-bold mb-3 text-ink">Monetizacija</h3>
+          <p class="text-muted leading-relaxed mb-5">Pricing od freemiuma do pretplate, Stripe integracija i — ono što nijedan strani tečaj nema — fiskalizacija za HR tržište i put paušal → j.d.o.o. → holding.</p>
+          <div class="border-t border-borderLight pt-4">
+            <p class="text-sm"><span class="font-bold text-ink">Odlaziš s:</span> <span class="text-ink/70">Naplatnim, skalabilnim poslovnim sustavom.</span></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PRICING ============================== -->
+  <section id="pricing" class="bg-softGray">
+    <div class="max-w-2xl mx-auto px-6 py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-ink mb-10">Sve što trebaš za izgraditi nešto stvarno vrijedno.</h2>
+
+      <div class="bg-paper border border-borderLight rounded-xl shadow-md p-8 md:p-10">
+        <h3 class="text-accent text-xl font-bold mb-1">MojBiznis.online</h3>
+        <p class="text-muted text-sm mb-6">Lifetime pristup</p>
+        <div class="border-t border-borderLight pt-6 space-y-4 mb-6">
+          <div class="flex gap-3">
+            <span class="text-accent font-bold shrink-0">✓</span>
+            <span class="text-ink">Kompletni 4-fazni sustav: ideja → gradnja → marketing → naplata</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-accent font-bold shrink-0">✓</span>
+            <span class="text-ink">AI prompt sustav za svaku fazu</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-accent font-bold shrink-0">✓</span>
+            <span class="text-ink">Korak-po-korak vodiči i materijali</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-accent font-bold shrink-0">✓</span>
+            <span class="text-ink">Founding member pristup + direktan kontakt</span>
+          </div>
+        </div>
+        <div class="border-t border-borderLight pt-6 mb-6 text-center">
+          <div class="flex items-baseline gap-2 justify-center">
+            <span class="text-6xl font-bold text-ink">37€</span>
+            <span class="text-muted">Jednokratno</span>
+          </div>
+        </div>
+        <a href="https://buy.stripe.com/PLACEHOLDER" class="block w-full bg-accent hover:bg-accentHover text-white font-semibold text-center px-6 py-4 rounded-md text-lg transition-colors">
+          Kupi instant pristup
+        </a>
+      </div>
+
+      <p class="text-center text-sm text-muted italic mt-6 max-w-lg mx-auto">
+        Nećeš vidjeti lažni countdown timer. Nema hype-a, nema BS-a. Najgori scenarij: dobiješ novac natrag. Najbolji: izgradiš profitabilni online produkt.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== IS THIS FOR YOU ============================== -->
+  <section class="bg-paper">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-ink mb-12">Je li ovo za tebe? (Iskren odgovor.)</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- IS -->
+        <div class="bg-paper border border-borderLight rounded-xl p-7">
+          <h3 class="text-success font-bold mb-5">MojBiznis JE za tebe:</h3>
+          <ul class="space-y-3 text-ink/85">
+            <li class="flex gap-3"><span class="text-success font-bold shrink-0">✓</span><span>Imaš ideju ili vještinu koju želiš pretvoriti u prihod</span></li>
+            <li class="flex gap-3"><span class="text-success font-bold shrink-0">✓</span><span>Razmišljaš o tome već neko vrijeme, ali nisi krenuo</span></li>
+            <li class="flex gap-3"><span class="text-success font-bold shrink-0">✓</span><span>Pokušao si i nije išlo — hoćeš jasniji sustav</span></li>
+            <li class="flex gap-3"><span class="text-success font-bold shrink-0">✓</span><span>Umoran si od tečajeva koji ne vode nigdje</span></li>
+            <li class="flex gap-3"><span class="text-success font-bold shrink-0">✓</span><span>Spreman si koristiti AI kao alat, ne kao štap</span></li>
+          </ul>
+        </div>
+
+        <!-- IS NOT -->
+        <div class="bg-paper border border-borderLight rounded-xl p-7">
+          <h3 class="text-danger font-bold mb-5">Ovo NIJE za tebe:</h3>
+          <ul class="space-y-3 text-ink/85">
+            <li class="flex gap-3"><span class="text-danger font-bold shrink-0">✕</span><span>Tražiš rupu za zaraditi bez pružanja vrijednosti</span></li>
+            <li class="flex gap-3"><span class="text-danger font-bold shrink-0">✕</span><span>Hoćeš da AI napravi 100% posla umjesto tebe</span></li>
+            <li class="flex gap-3"><span class="text-danger font-bold shrink-0">✕</span><span>Očekuješ da ćeš biti bogat do sutra</span></li>
+            <li class="flex gap-3"><span class="text-danger font-bold shrink-0">✕</span><span>Već radiš six figures s digitalnim produktima</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="text-center italic text-muted mt-10 max-w-xl mx-auto">
+        Bez zamjeranja u oba slučaja. Radije da uštediš 37€ nego da kupiš nešto što nije pravo za tebe.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== GUARANTEE ============================== -->
+  <section class="bg-paper">
+    <div class="max-w-xl mx-auto px-6 pb-20">
+      <div class="bg-cream border-2 border-accent rounded-xl p-8 text-center">
+        <div class="inline-flex items-center justify-center w-12 h-12 bg-accent rounded-full mb-4">
+          <!-- shield icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-ink mb-3">Action-Taker garancija</h3>
+        <p class="text-ink/80 leading-relaxed">
+          Ako napraviš rad i osjećaš da nije vrijedilo 37€ — javi se unutar 30 dana i vraćam ti novac. Jedino što tražim je da mi pokažeš da si probao.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FAQ ============================== -->
+  <section class="bg-paper">
+    <div class="max-w-3xl mx-auto px-6 py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-ink mb-12">Pitanja koja dobivam.</h2>
+
+      <div class="space-y-0 border-t border-borderLight">
+
+        <div class="faq-item border-b border-borderLight">
+          <button class="faq-trigger w-full flex justify-between items-center py-5 text-left" data-faq>
+            <span class="font-semibold text-ink text-lg pr-4">Što ako nemam pojma što bih prodavao?</span>
+            <span class="faq-icon text-accent text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-content text-muted leading-relaxed pb-5 pr-8">
+            Točno za to je Faza 1. AI prompt sustav te vodi kroz niz pitanja o tvojim vještinama i iskustvima i pomaže pressure-testirati ideje. Većina ljudi pronađe 3–5 izvedivih ideja unutar prvog sata.
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-borderLight">
+          <button class="faq-trigger w-full flex justify-between items-center py-5 text-left" data-faq>
+            <span class="font-semibold text-ink text-lg pr-4">Hoće li mi AI produkt zvučati generički?</span>
+            <span class="faq-icon text-accent text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-content text-muted leading-relaxed pb-5 pr-8">
+            Samo ako ga koristiš lijeno. Sustav koristi AI da izvuče tvoje specifično znanje i strukturira ga. AI organizira — ti daješ sadržaj. Zvuči kao ti jer jest ti.
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-borderLight">
+          <button class="faq-trigger w-full flex justify-between items-center py-5 text-left" data-faq>
+            <span class="font-semibold text-ink text-lg pr-4">Što ako nisam tehnički?</span>
+            <span class="faq-icon text-accent text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-content text-muted leading-relaxed pb-5 pr-8">
+            Čovjek koji je izgradio kvik.online po ovoj metodi nije znao što je React kad je krenuo. Ako možeš copy-paste, možeš koristiti promptove. Ako možeš pratiti vodič, možeš izgraditi funnel.
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-borderLight">
+          <button class="faq-trigger w-full flex justify-between items-center py-5 text-left" data-faq>
+            <span class="font-semibold text-ink text-lg pr-4">Je li ovo samo za SaaS ili i za druge produkte?</span>
+            <span class="faq-icon text-accent text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-content text-muted leading-relaxed pb-5 pr-8">
+            Metoda je izvučena iz SaaS iskustva, ali principi — validacija, gradnja, marketing, monetizacija — vrijede za bilo koji digitalni produkt: tečaj, vodič, alat, membership.
+          </div>
+        </div>
+
+        <div class="faq-item border-b border-borderLight">
+          <button class="faq-trigger w-full flex justify-between items-center py-5 text-left" data-faq>
+            <span class="font-semibold text-ink text-lg pr-4">Što dobivam odmah nakon kupnje?</span>
+            <span class="faq-icon text-accent text-2xl font-light shrink-0">+</span>
+          </button>
+          <div class="faq-content text-muted leading-relaxed pb-5 pr-8">
+            Instant pristup svim materijalima: 4-fazni sustav, AI prompt library, vodiči i founding member status. Email s pristupom stigne za par minuta.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FINAL CTA (DARK) ============================== -->
+  <section class="bg-navy text-white">
+    <div class="max-w-2xl mx-auto px-6 py-20 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8">Jedna posljednja stvar.</h2>
+
+      <div class="space-y-5 text-white/80 leading-relaxed mb-10">
+        <p>Znam kako je sjediti tamo gdje sjediš sada. Imaš ideju, ali već si se opekao. Evo što sam naučio: ljudi koji pobijede nisu oni s najboljim idejama ili najvećom publikom. Oni su oni koji su krenuli prije nego što su se osjećali spremnima.</p>
+        <p>MojBiznis.online je 37€ i nekoliko sati tvog vremena. Ako ne uspije — vraćam ti novac. Ako uspije — imaš nešto stvarno što je tvoje.</p>
+        <p class="text-white">To je cijeli bet. Dovoljno si čekao.</p>
+      </div>
+
+      <a href="https://buy.stripe.com/PLACEHOLDER" class="inline-block bg-accent hover:bg-accentHover text-white font-semibold px-10 py-4 rounded-md text-lg transition-colors mb-5">
+        Kupi instant pristup — 37€
+      </a>
+      <p class="text-sm text-white/50">Jednokratno plaćanje. Lifetime pristup. 30-dnevna garancija.</p>
+    </div>
+  </section>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="bg-navyDeep text-white/70">
+    <div class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6 items-center text-sm">
+      <div class="text-left">
+        <span class="font-bold text-white">MojBiznis</span><span class="text-accent">.online</span>
+      </div>
+      <div class="text-center text-white/50">
+        © 2026 MojBiznis.online · Sva prava pridržana
+      </div>
+      <div class="text-left md:text-right space-x-5">
+        <a href="mailto:kontakt@mojbiznis.online" class="hover:text-accent transition-colors">Kontakt</a>
+        <a href="/privatnost" class="hover:text-accent transition-colors">Politika privatnosti</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-8">
+      <p class="text-xs text-white/40 leading-relaxed">
+        Rezultati nisu zajamčeni. MojBiznis.online nudi edukaciju i trening. Prikazani rezultati nisu tipični i ovise o nizu faktora uključujući trud, znanje i tržišne uvjete.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============================== JS ============================== -->
+  <script>
+    // FAQ accordion (independent toggle per item)
+    document.querySelectorAll('[data-faq]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.parentElement.classList.toggle('open');
+      });
+    });
+
+    // Navbar shadow on scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 8) nav.classList.add('shadow-sm');
+      else nav.classList.remove('shadow-sm');
+    });
+  </script>
+
+</body>
+</html>
