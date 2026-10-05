@@ -3,24 +3,18 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>MojBiznis — Napravi online posao od onoga što već znaš</title>
-<meta content="Za ljude koji rade od 9 do 5: napravi proizvod od onoga što znaš, objavljuj o tome i plati nekoliko eura dnevno da te vidi više ljudi. Kreni s paketom od 8 €." name="description"/>
+<title>Tvoje je — Paket bez kamere | MojBiznis</title>
+<meta content="Preuzmi Paket bez kamere." name="description"/>
+<meta content="noindex, nofollow" name="robots"/>
 <meta content="#332713" name="theme-color"/>
 <meta content="website" property="og:type"/>
-<meta content="https://mojbiznis.online/" property="og:url"/>
-<meta content="MojBiznis — Napravi online posao od onoga što već znaš" property="og:title"/>
-<meta content="Napravi proizvod od onoga što znaš, objavljuj o tome i plati nekoliko eura dnevno da te vidi više ljudi. Kreni s paketom od 8 €." property="og:description"/>
-<!-- og:image: dodaj kasnije, npr. <meta property="og:image" content="https://mojbiznis.online/og.png"> (1200 × 630) -->
+<meta content="https://mojbiznis.online/ty/content" property="og:url"/>
+<meta content="Tvoje je — Paket bez kamere | MojBiznis" property="og:title"/>
+<meta content="Preuzmi Paket bez kamere." property="og:description"/>
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23581923'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='36' fill='%23EBDDC4'%3EM%3C/text%3E%3C/svg%3E" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/>
-<!--
-  UPUTE (za Alexandra)
-  1. Slike kvik-1.webp, kvik-2.webp i kvik-3.webp idu u istu mapu kao ovaj index.html (sve je u zipu).
-  2. Ako stara naslovnica ima analitiku (npr. Vercel Analytics), prenesi njen <script> na dno ove datoteke.
-  3. Linkovi na proizvode su /f/ai, /f/claude i /f/content, kao na staroj naslovnici.
--->
 <style>
   :root {
     --espresso: #332713;
@@ -249,6 +243,23 @@
   .footer-links { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
   .footer-links a { text-decoration: none; }
   .footer-links a:hover { color: var(--cream); }
+
+  .ty { padding: 56px 0 96px; }
+  @media (min-width: 900px) { .ty { padding: 96px 0 128px; } }
+  .ty h1 { max-width: 11em; }
+  .download {
+    display: grid; gap: 20px; margin-top: 40px; padding: 30px 26px;
+    border-radius: 18px; background: var(--wine-card); border: 1px solid rgba(222, 138, 148, 0.45);
+  }
+  @media (min-width: 900px) { .download { grid-template-columns: 1fr auto; align-items: center; padding: 40px 44px; gap: 40px; } }
+  .download h2 { font-size: clamp(1.5rem, 3.4vw, 2rem); margin-bottom: 8px; }
+  .download.addon { margin-top: 16px; background: var(--espresso-2); border-color: var(--line); }
+  .download.addon h2 { font-size: clamp(1.25rem, 2.8vw, 1.6rem); }
+  .download p { margin: 0; }
+  .start-list { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--line); max-width: 44em; }
+  .start-list li { display: grid; grid-template-columns: 2.2em 1fr; gap: 12px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .start-list .how-num { font-family: var(--serif); font-size: 1.6rem; line-height: 1; color: var(--rose); }
+  .start-list strong { color: var(--cream-2); font-weight: 600; }
 </style>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -264,168 +275,36 @@
 <header class="site-header">
 <div class="wrap">
 <a class="wordmark" href="/">MojBiznis</a>
-<nav aria-label="Glavni sadržaj" class="header-links">
-<a class="plain" href="#steps">Kako radi</a>
-<a class="btn btn-primary btn-small" href="/f/content">Kreni s 8 €</a>
-</nav>
 </div>
 </header>
 <main id="main">
-<!-- HERO -->
-<section aria-labelledby="hero-title" class="hero">
+<section aria-labelledby="ty-title" class="ty">
 <div class="wrap">
-<p class="eyebrow">Za ljude koji imaju posao od 9 do 5</p>
-<h1 id="hero-title">Napravi online posao od onoga što već znaš.</h1>
-<p class="lead">Kreni navečer, uz posao. Ostavi ga kao dodatni prihod ili ga razvij dok ne radiš za sebe. Oba puta su dobra.</p>
-<ol class="how">
-<li><span class="how-num">1</span><span>Napravi proizvod od onoga u čemu si dobar.</span></li>
-<li><span class="how-num">2</span><span>Objavljuj o tome.</span></li>
-<li><span class="how-num">3</span><span>Plati nekoliko eura dnevno da te vidi više ljudi.</span></li>
+<p class="eyebrow">Plaćanje primljeno · hvala</p>
+<h1 id="ty-title">Tvoje je.</h1>
+<p class="lead">Paket bez kamere je spreman. To je jedan PDF koji se dobro čita na mobitelu. Preuzmi ga odmah i spremi negdje gdje ćeš ga opet naći.</p>
+<div class="download">
+<div>
+<h2>Paket bez kamere</h2>
+<p class="muted">PDF · oko 3 MB</p>
+</div>
+<a class="btn btn-cream" download="" href="/d/pbk-aee296edc666/Paket_bez_kamere.pdf">Preuzmi paket</a>
+</div>
+<div class="download addon">
+<div>
+<h2>Dodao si Paket promptova uz plaćanje?</h2>
+<p class="muted">Tvojih dvanaest promptova je na zasebnoj stranici, s gumbom Kopiraj uz svaki i PDF-om za preuzimanje. Spremi je u oznake.</p>
+</div>
+<a class="btn btn-outline" href="/p/pp-c3052beec387/">Otvori Paket promptova</a>
+</div>
+<p class="eyebrow" style="margin-top:64px">Odakle krenuti</p>
+<h2>Večeras, tri stvari.</h2>
+<ol class="start-list">
+<li><span class="how-num">1</span><span><strong>Pročitaj pismo na 2. stranici.</strong> Kratko je i kaže što možeš očekivati od prvih tjedana.</span></li>
+<li><span class="how-num">2</span><span><strong>Napravi svoju datoteku glasa.</strong> Sustav 02, pet minuta. Svaki prompt u paketu radi na njoj.</span></li>
+<li><span class="how-num">3</span><span><strong>Pa sustav 01 i zapiši svoj broj.</strong> Jedini je način da za tri tjedna znaš je li išta upalo.</span></li>
 </ol>
-<div class="actions">
-<a class="btn btn-primary" href="/f/content">Kreni s paketom od 8 €</a>
-<a class="btn btn-outline" href="#steps">Pogledaj kako radi</a>
-</div>
-<p class="note">Osam alata · 8 € · odmah dostupno</p>
-</div>
-</section>
-<!-- IZJAVA -->
-<div class="statement-band">
-<div class="wrap">
-<p class="statement">Problem nije vrijeme. Problem je što ne znaš što s njim.</p>
-</div>
-</div>
-<!-- DOKAZ: KVIK -->
-<section aria-labelledby="proof-title" class="proof">
-<div class="wrap">
-<div class="proof-grid">
-<div>
-<p class="eyebrow">Prvo dokaz</p>
-<h2 id="proof-title">Nisam programer, ali sam napravio aplikaciju koju ljudi plaćaju svaki mjesec.</h2>
-</div>
-<div>
-<p class="lead proof-lead">kvik je džepni knjigovođa za paušalne obrtnike. Napravio sam ga za deset tjedana uz pomoć AI-ja, mali korak po korak. Ja sam Željko Holik i napravio sam ga dok sam radio od 9 do 5.</p>
-<ul class="facts">
-<li><span>Što radi</span><span>Računi, knjiga prihoda, porezni rokovi, odgovori na porezna pitanja</span></li>
-<li><span>Cijena</span><span>7 € mjesečno</span></li>
-<li><span>Izrađen za</span><span>10 tjedana, uz AI</span></li>
-<li><span>Korisnici</span><span>Plaćaju svaki mjesec</span></li>
-</ul>
-</div>
-</div>
-<div class="shots">
-<!-- Slike: kvik-1.webp, kvik-2.webp, kvik-3.webp u istoj mapi kao index.html -->
-<figure class="shot">
-<a href="/kvik-1.webp" rel="noopener" target="_blank"><img alt="kvik, početna stranica: što aplikacija radi za paušalne obrtnike" height="1248" loading="lazy" onerror="var f=this.closest('figure'); f.classList.add('is-empty'); this.parentNode.remove();" src="/kvik-1.webp" width="1200"/></a>
-<div class="shot-placeholder">Snimka zaslona 1<br/>kvik: početna stranica</div>
-<figcaption>Što radi kvik</figcaption>
-</figure>
-<figure class="shot">
-<a href="/kvik-2.webp" rel="noopener" target="_blank"><img alt="kvik: besplatni alati za paušalne obrtnike" height="1227" loading="lazy" onerror="var f=this.closest('figure'); f.classList.add('is-empty'); this.parentNode.remove();" src="/kvik-2.webp" width="1200"/></a>
-<div class="shot-placeholder">Snimka zaslona 2<br/>kvik: besplatni alati</div>
-<figcaption>Besplatni alati</figcaption>
-</figure>
-<figure class="shot">
-<a href="/kvik-3.webp" rel="noopener" target="_blank"><img alt="kvik: AI asistent odgovara na porezno pitanje" height="1241" loading="lazy" onerror="var f=this.closest('figure'); f.classList.add('is-empty'); this.parentNode.remove();" src="/kvik-3.webp" width="1200"/></a>
-<div class="shot-placeholder">Snimka zaslona 3<br/>kvik: AI asistent</div>
-<figcaption>AI asistent</figcaption>
-</figure>
-</div>
-<p class="note">Zasloni iz besplatnog dijela kvika. Dodirni zaslon da ga vidiš veće.</p>
-<p class="lead proof-close">Ako sam ja mogao napraviti aplikaciju za knjigovodstvo a da ne znam programirati, možeš i ti napraviti online posao oko onoga u čemu si dobar. Peći kolače, popravljati karburatore, preživjeti u divljini: ako ljudi to žele naučiti, može biti proizvod.</p>
-</div>
-</section>
-<!-- TRI KORAKA -->
-<section aria-labelledby="steps-title" id="steps">
-<div class="wrap">
-<p class="eyebrow">Kako radi</p>
-<h2 id="steps-title">Tri koraka. Radi ih ovim redom.</h2>
-<p class="lead steps-intro">Ne kreći od objava. Bez onoga što možeš prodati, ljudi koji te nađu nemaju što kupiti.</p>
-<div class="cards">
-<article class="card">
-<div class="step-num">01</div>
-<p class="step-label">Proizvod</p>
-<h3>Napravi proizvod od onoga što znaš</h3>
-<p class="product-line"><span>Mali izlaz</span><span class="nowrap"><span class="price">68 €</span> · jednokratno</span></p>
-<p class="desc">Plan od 90 dana u četiri faze: provjeri da će ljudi platiti, napravi proizvod, počni prodavati, pa automatiziraj prodaju. Posao zadržavaš cijelo vrijeme.</p>
-<p class="more"><a class="text-link" href="/f/ai">Pogledaj Mali izlaz →</a></p>
-</article>
-<article class="card">
-<div class="step-num">02</div>
-<p class="step-label">Objave</p>
-<h3>Objavljuj o tome</h3>
-<p class="product-line"><span>AI motor za sadržaj</span><span class="nowrap"><span class="price">48 €</span> · jednokratno</span></p>
-<p class="desc">Sedam Claude promptova i mjesečni plan. Mjesec objava isplaniraš za otprilike dva sata, a zvuče kao ti.</p>
-<p class="more"><a class="text-link" href="/f/claude">Pogledaj AI motor za sadržaj →</a></p>
-</article>
-<article class="card is-entry">
-<span class="badge">Kreni ovdje</span>
-<div class="step-num">03</div>
-<p class="step-label">Oglasi</p>
-<h3>Plati malo da te vidi više ljudi</h3>
-<p class="product-line"><span>Paket bez kamere</span><span class="nowrap"><span class="price">8 €</span></span></p>
-<p class="desc">Osam alata, među njima prompt za jake prve rečenice, datoteka zbog koje AI piše kao ti, automatski odgovor na komentare i što se dobije za 5 € oglasa dnevno.</p>
-<p class="more"><a class="text-link" href="/f/content">Uzmi svih osam za 8 € →</a></p>
-</article>
-</div>
-<div class="start">
-<div>
-<h3>Odakle krenuti</h3>
-<p>Koraci idu od 1 do 3, ali najjeftiniji ulaz je paket od 8 €. Možeš ga odmah primijeniti na svoje objave, a vidiš kako radim prije nego što potrošiš više.</p>
-</div>
-<a class="btn btn-cream" href="/f/content">Uzmi svih osam — 8 €</a>
-</div>
-</div>
-</section>
-<!-- ŠTO SE MIJENJA -->
-<section aria-labelledby="changes-title" class="changes">
-<div class="wrap">
-<p class="eyebrow">Što se mijenja</p>
-<h2 id="changes-title">Od večernjeg skrolanja do vlastitog posla.</h2>
-<ul class="change-list">
-<li><span class="from">Sat skrolanja svake večeri</span><span aria-hidden="true" class="arrow">→</span><span class="to">Sat na nečemu svojem</span></li>
-<li><span class="from">„Ne znam što bih prodavao”</span><span aria-hidden="true" class="arrow">→</span><span class="to">Jedan proizvod, provjeren prije nego ga napraviš</span></li>
-<li><span class="from">„Što danas objaviti?”</span><span aria-hidden="true" class="arrow">→</span><span class="to">Mjesec objava, isplaniran u jednom sjedanju</span></li>
-<li><span class="from">Objave koje nitko ne vidi</span><span aria-hidden="true" class="arrow">→</span><span class="to">Objave s jasnom prvom rečenicom i oglasi od 5 € dnevno koje možeš pratiti</span></li>
-</ul>
-</div>
-</section>
-<!-- ZA KOGA -->
-<section aria-labelledby="fit-title" class="fit">
-<div class="wrap">
-<p class="eyebrow">Prije kupnje</p>
-<h2 id="fit-title">Je li ovo za tebe?</h2>
-<div class="fit-grid">
-<div class="fit-box fit-yes">
-<h3>Za tebe je ako</h3>
-<ul>
-<li>Imaš posao i otprilike sat vremena većinu večeri.</li>
-<li>Radije slijediš jasan redoslijed nego da pogađaš.</li>
-<li>Nisi tehnički potkovan i ne želiš biti pred kamerom.</li>
-<li>Želiš nešto svoje, građeno korak po korak.</li>
-</ul>
-</div>
-<div class="fit-box fit-no">
-<h3>Nije za tebe ako</h3>
-<ul>
-<li>Trebaš novac ovaj mjesec.</li>
-<li>Želiš da netko to napravi umjesto tebe.</li>
-<li>Tražiš način da se brzo obogatiš.</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- ZAVRŠNI POZIV -->
-<section aria-labelledby="final-title" class="final">
-<div class="wrap">
-<h2 id="final-title">Kreni s najmanjim korakom.</h2>
-<p class="lead">Osam alata za objave koje ionako radiš. 8 €, odmah dostupno.</p>
-<div class="actions">
-<a class="btn btn-cream" href="/f/content">Uzmi svih osam — 8 €</a>
-</div>
-<p class="others">Ili idi izravno na <a class="text-link" href="/f/ai">Mali izlaz, 68 €</a> ili <a class="text-link" href="/f/claude">AI motor za sadržaj, 48 €</a>.</p>
-<p class="note">Svaki proizvod ima povrat novca u 30 dana. Uvjeti su na stranici svakog proizvoda.</p>
+<p class="note" style="margin-top:28px">Ako se preuzimanje ne pokrene, otvori ovu stranicu na drugom uređaju ili piši na <a class="text-link" href="mailto:kontakt@mojbiznis.online">kontakt@mojbiznis.online</a> .</p>
 </div>
 </section>
 </main>
