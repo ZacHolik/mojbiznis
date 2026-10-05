@@ -94,6 +94,11 @@
   }
   .btn-primary { background: var(--wine); border-color: var(--wine); color: var(--cream); }
   .btn-primary:hover { background: var(--wine-hover); border-color: var(--wine-hover); }
+  .consent { display: flex; gap: 10px; align-items: flex-start; margin: 14px 0 0; max-width: 520px; font-size: 0.88rem; line-height: 1.45; color: var(--muted); cursor: pointer; }
+  .consent input { margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--rose); }
+  .consent a { color: inherit; text-decoration: underline; }
+  .consent.err { color: var(--rose); outline: 2px solid var(--rose); outline-offset: 6px; border-radius: 4px; }
+  .final .consent { color: rgba(235, 221, 196, 0.85); margin-left: auto; margin-right: auto; text-align: left; }
   .btn-outline { background: transparent; border-color: rgba(235, 221, 196, 0.5); color: var(--cream); }
   .btn-outline:hover { border-color: var(--cream); }
   .btn-cream { background: var(--cream); border-color: var(--cream); color: var(--wine); }
@@ -306,7 +311,7 @@
 <a class="wordmark" href="/">MojBiznis</a>
 <nav aria-label="Glavni sadržaj" class="header-links">
 <a class="plain" href="#inside">Što je unutra</a>
-<a class="btn btn-primary btn-small buy" href="https://buy.stripe.com/PLACEHOLDER_PAKET_8EUR">Uzmi ga — 8 €</a>
+<a class="btn btn-primary btn-small buy" href="https://buy.stripe.com/28E6oJ7OLh0V8K82k4fUQ06">Uzmi ga — 8 €</a>
 </nav>
 </div>
 </header>
@@ -322,10 +327,11 @@
 <li><span class="how-num">3</span><span>Saznaj koliko te košta jedan pratitelj uz 5 € dnevno.</span></li>
 </ol>
 <div class="actions">
-<a class="btn btn-primary buy" href="https://buy.stripe.com/PLACEHOLDER_PAKET_8EUR">Uzmi svih osam — 8 €</a>
+<a class="btn btn-primary buy" href="https://buy.stripe.com/28E6oJ7OLh0V8K82k4fUQ06">Uzmi svih osam — 8 €</a>
 <a class="btn btn-outline" href="#inside">Pogledaj što je unutra</a>
 </div>
 <p class="note">Jedno plaćanje · PDF odmah · jamstvo 30 dana</p>
+<label class="consent"><input type="checkbox" class="consent-cb"><span>Tražim da mi se digitalni sadržaj isporuči odmah i prihvaćam da time gubim pravo na odustanak u roku od 14 dana. Vrijede <a href="/uvjeti" target="_blank">uvjeti korištenja</a>, uključujući jamstvo povrata novca 30 dana.</span></label>
 </div>
 </section>
 <div class="statement-band">
@@ -516,15 +522,16 @@
 <h2 id="final-title">Osam sustava. Osam eura. Bez kamere.</h2>
 <p class="lead">Kreni večeras s datotekom glasa. Treba ti pet minuta.</p>
 <div class="actions">
-<a class="btn btn-cream buy" href="https://buy.stripe.com/PLACEHOLDER_PAKET_8EUR">Uzmi svih osam — 8 €</a>
+<a class="btn btn-cream buy" href="https://buy.stripe.com/28E6oJ7OLh0V8K82k4fUQ06">Uzmi svih osam — 8 €</a>
 </div>
 <p class="note">Jedno plaćanje · PDF odmah · jamstvo 30 dana</p>
+<label class="consent"><input type="checkbox" class="consent-cb"><span>Tražim da mi se digitalni sadržaj isporuči odmah i prihvaćam da time gubim pravo na odustanak u roku od 14 dana. Vrijede <a href="/uvjeti" target="_blank">uvjeti korištenja</a>, uključujući jamstvo povrata novca 30 dana.</span></label>
 </div>
 </section>
 </main>
 <div aria-hidden="true" class="sticky-buy" id="stickyBuy">
 <span>Tvoje Instagram objave bez pokazivanja lica · 8 €</span>
-<a class="btn btn-primary btn-small buy" href="https://buy.stripe.com/PLACEHOLDER_PAKET_8EUR" tabindex="-1">Uzmi ga</a>
+<a class="btn btn-primary btn-small buy" href="https://buy.stripe.com/28E6oJ7OLh0V8K82k4fUQ06" tabindex="-1">Uzmi ga</a>
 </div>
 <footer class="site-footer">
 <div class="wrap footer-grid">
@@ -550,6 +557,21 @@
       a.href = a.href + (a.href.indexOf('?') < 0 ? '?' : '&') + 'client_reference_id=' + ref;
     });
   }
+  var cbs = document.querySelectorAll('.consent-cb');
+  cbs.forEach(function(c){ c.addEventListener('change', function(){
+    cbs.forEach(function(o){ o.checked = c.checked; o.parentNode.classList.remove('err'); });
+  }); });
+  document.querySelectorAll('a.buy').forEach(function(a){
+    a.addEventListener('click', function(e){
+      if (cbs[0] && !cbs[0].checked) {
+        e.preventDefault();
+        var inFinal = a.closest('.final') || a.closest('.sticky-buy');
+        var t = (inFinal ? cbs[cbs.length - 1] : cbs[0]).parentNode;
+        t.classList.add('err');
+        t.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
   var bar = document.getElementById('stickyBuy');
   var hero = document.querySelector('.hero .buy');
   if (bar && hero && 'IntersectionObserver' in window) {
