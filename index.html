@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>MojBiznis — Napravi online posao od onoga što već znaš</title>
+<title>MojBiznis.online — Napravi od toga online posao</title>
 <meta content="Za ljude koji rade od 9 do 5: napravi proizvod od onoga što znaš, objavljuj o tome i plati nekoliko eura dnevno da te vidi više ljudi. Kreni s paketom od 8 €." name="description"/>
 <meta content="#332713" name="theme-color"/>
 <meta content="website" property="og:type"/>
 <meta content="https://mojbiznis.online/" property="og:url"/>
-<meta content="MojBiznis — Napravi online posao od onoga što već znaš" property="og:title"/>
+<meta content="MojBiznis.online — Napravi od toga online posao" property="og:title"/>
 <meta content="Napravi proizvod od onoga što znaš, objavljuj o tome i plati nekoliko eura dnevno da te vidi više ljudi. Kreni s paketom od 8 €." property="og:description"/>
 <!-- og:image: dodaj kasnije, npr. <meta property="og:image" content="https://mojbiznis.online/og.png"> (1200 × 630) -->
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23581923'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='36' fill='%23EBDDC4'%3EM%3C/text%3E%3C/svg%3E" rel="icon"/>
@@ -34,6 +34,12 @@
     --rose: #DE8A94;
     --muted: #B3A59C;
     --line: rgba(235, 221, 196, 0.16);
+    /* Dvije nijanse "bijele kave" za svijetle dionice stranice */
+    --latte: #F4E9D8;
+    --latte-2: #E7D2A9;
+    --latte-line: rgba(88, 25, 35, 0.15);
+    --coffee: #2A1E12;
+    --coffee-muted: #7C6A52;
     --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
     --sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
     --max: 1120px;
@@ -136,7 +142,11 @@
   }
 
   /* Dokaz: kvik */
-  .proof { background: var(--espresso-2); }
+  .proof { background: var(--latte); color: var(--coffee); }
+  .proof .eyebrow { color: var(--wine); }
+  .proof h2 { color: var(--espresso); }
+  .proof .lead { color: var(--coffee); }
+  .proof .muted { color: var(--coffee-muted); }
   .proof-grid { display: grid; gap: 8px; }
   .proof-grid > div { min-width: 0; }
   @media (min-width: 900px) {
@@ -144,9 +154,9 @@
     .proof-lead { margin-top: 34px; }
   }
   .proof h2 { max-width: 13em; }
-  .facts { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--line); }
-  .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
-  .facts span:first-child { color: var(--muted); white-space: nowrap; }
+  .facts { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--latte-line); }
+  .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--latte-line); }
+  .facts span:first-child { color: var(--coffee-muted); white-space: nowrap; }
   .facts span:last-child { text-align: right; }
 
   .shots {
@@ -160,15 +170,15 @@
   }
   .shot { margin: 0; scroll-snap-align: start; }
   .shot a { display: block; border-radius: 14px; }
-  .shot img { width: 100%; height: auto; aspect-ratio: 25 / 26; object-fit: cover; object-position: top center; border-radius: 14px; border: 1px solid var(--line); background: var(--ink); }
+  .shot img { width: 100%; height: auto; aspect-ratio: 25 / 26; object-fit: cover; object-position: top center; border-radius: 14px; border: 1px solid var(--latte-line); background: var(--latte-2); }
   .shot-placeholder {
     display: none; aspect-ratio: 1 / 1;
     align-items: center; justify-content: center; text-align: center;
-    padding: 18px; border: 1.5px dashed rgba(235, 221, 196, 0.38); border-radius: 14px;
-    background: rgba(18, 15, 14, 0.4); color: var(--muted); font-size: 0.9rem; line-height: 1.45;
+    padding: 18px; border: 1.5px dashed rgba(88, 25, 35, 0.3); border-radius: 14px;
+    background: var(--latte-2); color: var(--coffee-muted); font-size: 0.9rem; line-height: 1.45;
   }
   .shot.is-empty .shot-placeholder { display: flex; }
-  .shot figcaption { margin-top: 10px; font-size: 0.9rem; color: var(--muted); }
+  .shot figcaption { margin-top: 10px; font-size: 0.9rem; color: var(--coffee-muted); }
   .proof-close { margin-top: 32px; }
 
   /* Tri koraka */
@@ -220,17 +230,19 @@
   }
 
   /* Za koga */
-  .fit { background: var(--espresso-2); }
+  .fit { background: var(--latte); color: var(--coffee); }
+  .fit .eyebrow { color: var(--wine); }
+  .fit h2 { color: var(--espresso); }
   .fit-grid { display: grid; gap: 18px; margin-top: 44px; }
   @media (min-width: 900px) { .fit-grid { grid-template-columns: 1fr 1fr; gap: 22px; } }
-  .fit-box { padding: 30px 26px; border: 1px solid var(--line); border-radius: 18px; }
-  .fit-box h3 { margin-bottom: 16px; }
+  .fit-box { padding: 30px 26px; border: 1px solid var(--latte-line); border-radius: 18px; background: var(--latte-2); }
+  .fit-box h3 { margin-bottom: 16px; color: var(--espresso); }
   .fit-box ul { list-style: none; margin: 0; padding: 0; }
-  .fit-box li { position: relative; padding: 10px 0 10px 26px; border-top: 1px solid var(--line); }
+  .fit-box li { position: relative; padding: 10px 0 10px 26px; border-top: 1px solid rgba(88, 25, 35, 0.18); }
   .fit-box li:first-child { border-top: 0; }
   .fit-box li::before { content: ""; position: absolute; left: 2px; top: 1.15em; width: 9px; height: 9px; border-radius: 50%; }
-  .fit-yes li::before { background: var(--rose); }
-  .fit-no li::before { border: 1.5px solid var(--muted); }
+  .fit-yes li::before { background: var(--wine); }
+  .fit-no li::before { border: 1.5px solid var(--coffee-muted); }
 
   /* Završni poziv */
   .final { background: var(--wine); text-align: center; }
@@ -263,7 +275,7 @@
 <a class="skip" href="#main">Preskoči na sadržaj</a>
 <header class="site-header">
 <div class="wrap">
-<a class="wordmark" href="/">MojBiznis</a>
+<a class="wordmark" href="/">MojBiznis.online</a>
 <nav aria-label="Glavni sadržaj" class="header-links">
 <a class="plain" href="#steps">Kako radi</a>
 <a class="btn btn-primary btn-small" href="/f/content">Kreni s 8 €</a>
@@ -274,9 +286,9 @@
 <!-- HERO -->
 <section aria-labelledby="hero-title" class="hero">
 <div class="wrap">
-<p class="eyebrow">Za ljude koji imaju posao od 9 do 5</p>
-<h1 id="hero-title">Napravi online posao od onoga što već znaš.</h1>
-<p class="lead">Kreni navečer, uz posao. Ostavi ga kao dodatni prihod ili ga razvij dok ne radiš za sebe. Oba puta su dobra.</p>
+<p class="eyebrow">Za zaposlene od 9-5</p>
+<h1 id="hero-title">Stručan si? Znaš nešto?<br>Napravi od toga online posao.</h1>
+<p class="lead">Kreni navečer, uz posao. Izgradi ga da ti bude dodatni prihod, ili ga pak razvij da budeš svoj šef. Oba puta su dobra.</p>
 <ol class="how">
 <li><span class="how-num">1</span><span>Napravi proizvod od onoga u čemu si dobar.</span></li>
 <li><span class="how-num">2</span><span>Objavljuj o tome.</span></li>
@@ -300,11 +312,11 @@
 <div class="wrap">
 <div class="proof-grid">
 <div>
-<p class="eyebrow">Prvo dokaz</p>
-<h2 id="proof-title">Nisam programer, ali sam napravio aplikaciju koju ljudi plaćaju svaki mjesec.</h2>
+<p class="eyebrow">Dokaz što se uz AI sve može</p>
+<h2 id="proof-title">Iako nisam programer, uspio sam napraviti korisnu aplikaciju za čije se korištenje plaća pretplata.</h2>
 </div>
 <div>
-<p class="lead proof-lead">kvik je džepni knjigovođa za paušalne obrtnike. Napravio sam ga za deset tjedana uz pomoć AI-ja, mali korak po korak. Ja sam Željko Holik i napravio sam ga dok sam radio od 9 do 5.</p>
+<p class="lead proof-lead">kvik.hr je džepni knjigovođa za paušalne obrtnike. Napravljena je za deset tjedana uz pomoć AI-ja, u slobodno vrijeme poslije posla.</p>
 <ul class="facts">
 <li><span>Što radi</span><span>Računi, knjiga prihoda, porezni rokovi, odgovori na porezna pitanja</span></li>
 <li><span>Cijena</span><span>7 € mjesečno</span></li>
@@ -316,23 +328,23 @@
 <div class="shots">
 <!-- Slike: kvik-1.webp, kvik-2.webp, kvik-3.webp u istoj mapi kao index.html -->
 <figure class="shot">
-<a href="/kvik-1.webp" rel="noopener" target="_blank"><img alt="kvik, početna stranica: što aplikacija radi za paušalne obrtnike" height="1248" loading="lazy" onerror="var f=this.closest('figure'); f.classList.add('is-empty'); this.parentNode.remove();" src="/kvik-1.webp" width="1200"/></a>
-<div class="shot-placeholder">Snimka zaslona 1<br/>kvik: početna stranica</div>
-<figcaption>Što radi kvik</figcaption>
+<a href="/kvik-1.webp" rel="noopener" target="_blank"><img alt="kvik.hr, početna stranica: aplikacija za paušalne obrtnike, s AI asistentom" height="907" loading="lazy" onerror="var f=this.closest('figure'); f.classList.add('is-empty'); this.parentNode.remove();" src="/kvik-1.webp" width="937"/></a>
+<div class="shot-placeholder">Snimka zaslona 1<br/>kvik.hr: početna stranica</div>
+<figcaption>Što radi kvik.hr</figcaption>
 </figure>
 <figure class="shot">
-<a href="/kvik-2.webp" rel="noopener" target="_blank"><img alt="kvik: besplatni alati za paušalne obrtnike" height="1227" loading="lazy" onerror="var f=this.closest('figure'); f.classList.add('is-empty'); this.parentNode.remove();" src="/kvik-2.webp" width="1200"/></a>
-<div class="shot-placeholder">Snimka zaslona 2<br/>kvik: besplatni alati</div>
+<a href="/kvik-2.webp" rel="noopener" target="_blank"><img alt="kvik.hr: vodiči za paušalne obrtnike" height="905" loading="lazy" onerror="var f=this.closest('figure'); f.classList.add('is-empty'); this.parentNode.remove();" src="/kvik-2.webp" width="936"/></a>
+<div class="shot-placeholder">Snimka zaslona 2<br/>kvik.hr: vodiči</div>
+<figcaption>Vodiči za paušalne obrtnike</figcaption>
+</figure>
+<figure class="shot">
+<a href="/kvik-3.webp" rel="noopener" target="_blank"><img alt="kvik.hr: besplatni alati za paušalne obrtnike" height="908" loading="lazy" onerror="var f=this.closest('figure'); f.classList.add('is-empty'); this.parentNode.remove();" src="/kvik-3.webp" width="940"/></a>
+<div class="shot-placeholder">Snimka zaslona 3<br/>kvik.hr: alati</div>
 <figcaption>Besplatni alati</figcaption>
 </figure>
-<figure class="shot">
-<a href="/kvik-3.webp" rel="noopener" target="_blank"><img alt="kvik: AI asistent odgovara na porezno pitanje" height="1241" loading="lazy" onerror="var f=this.closest('figure'); f.classList.add('is-empty'); this.parentNode.remove();" src="/kvik-3.webp" width="1200"/></a>
-<div class="shot-placeholder">Snimka zaslona 3<br/>kvik: AI asistent</div>
-<figcaption>AI asistent</figcaption>
-</figure>
 </div>
-<p class="note">Zasloni iz besplatnog dijela kvika. Dodirni zaslon da ga vidiš veće.</p>
-<p class="lead proof-close">Ako sam ja mogao napraviti aplikaciju za knjigovodstvo a da ne znam programirati, možeš i ti napraviti online posao oko onoga u čemu si dobar. Peći kolače, popravljati karburatore, preživjeti u divljini: ako ljudi to žele naučiti, može biti proizvod.</p>
+<p class="note">Zasloni iz besplatnog dijela kvik.hr-a. Dodirni zaslon da ga vidiš veće.</p>
+<p class="lead proof-close">Ako sam ja mogao napraviti aplikaciju za knjigovodstvo a da ne znam programirati, možeš i ti napraviti online posao oko onoga u čemu si dobar, štogod to bilo. Ako znaš peći bakine kolače, popravljati karburatore na vintage autima, preživjeti u divljini: ako ljudi to žele naučiti, to može biti online proizvod.</p>
 </div>
 </section>
 <!-- TRI KORAKA -->
@@ -340,7 +352,7 @@
 <div class="wrap">
 <p class="eyebrow">Kako radi</p>
 <h2 id="steps-title">Tri koraka. Radi ih ovim redom.</h2>
-<p class="lead steps-intro">Ne kreći od objava. Bez onoga što možeš prodati, ljudi koji te nađu nemaju što kupiti.</p>
+<p class="lead steps-intro">Ili ne. Logično je da kreneš od proizvodnje onoga što možeš prodati, ali možeš krenuti i od objava o tome na Instagramu i sondirati teren. Bitno je krenuti.</p>
 <div class="cards">
 <article class="card">
 <div class="step-num">01</div>
@@ -354,15 +366,15 @@
 <div class="step-num">02</div>
 <p class="step-label">Objave</p>
 <h3>Objavljuj o tome</h3>
-<p class="product-line"><span>AI sustav za brzu gradnju sadržaja</span><span class="nowrap"><span class="price">48 €</span> · jednokratno</span></p>
-<p class="desc">Sedam Claude promptova i mjesečni plan. Mjesec objava isplaniraš za otprilike dva sata, a zvuče kao ti.</p>
-<p class="more"><a class="text-link" href="/f/claude">Pogledaj „AI sustav za brzu gradnju sadržaja” →</a></p>
+<p class="product-line"><span>AI sustav za masovnu proizvodnju sadržaja za objavljivanje</span><span class="nowrap"><span class="price">48 €</span> · jednokratno</span></p>
+<p class="desc">Sedam Claude promptova i mjesečni plan. Materijal za mjesec dana objava isplaniraš za otprilike dva sata, jer važno je objavljivati redovito.</p>
+<p class="more"><a class="text-link" href="/f/claude">Pogledaj „AI sustav za masovnu proizvodnju sadržaja za objavljivanje” →</a></p>
 </article>
 <article class="card is-entry">
 <span class="badge">Kreni ovdje</span>
 <div class="step-num">03</div>
 <p class="step-label">Oglasi</p>
-<h3>Plati malo da te vidi više ljudi</h3>
+<h3>Trikovi da te vidi više ljudi.</h3>
 <p class="product-line"><span>Tvoje Instagram objave bez pokazivanja lica</span><span class="nowrap"><span class="price">8 €</span></span></p>
 <p class="desc">Osam alata, među njima prompt za jake prve rečenice, datoteka zbog koje AI piše kao ti, automatski odgovor na komentare i što se dobije za 5 € oglasa dnevno.</p>
 <p class="more"><a class="text-link" href="/f/content">Uzmi svih osam za 8 € →</a></p>
@@ -424,7 +436,7 @@
 <div class="actions">
 <a class="btn btn-cream" href="/f/content">Uzmi svih osam — 8 €</a>
 </div>
-<p class="others">Ili idi izravno na <a class="text-link" href="/f/ai">Tvoj izlaz iz 9-5, 68 €</a> ili <a class="text-link" href="/f/claude">AI sustav za brzu gradnju sadržaja, 48 €</a>.</p>
+<p class="others">Ili idi izravno na <a class="text-link" href="/f/ai">Tvoj izlaz iz 9-5, 68 €</a> ili <a class="text-link" href="/f/claude">AI sustav za masovnu proizvodnju sadržaja za objavljivanje, 48 €</a>.</p>
 <p class="note">Svaki proizvod ima povrat novca u 30 dana. Uvjeti su na stranici svakog proizvoda.</p>
 </div>
 </section>
@@ -432,14 +444,14 @@
 <footer class="site-footer">
 <div class="wrap footer-grid">
 <div class="footer-brand">
-<a class="wordmark" href="/">MojBiznis</a>
-<p>Digitalni proizvodi za ljude koji rade od 9 do 5.<br>MojBiznis je brend obrta Kvik iz Hrvatske.</p>
+<a class="wordmark" href="/">MojBiznis.online</a>
+<p>Digitalni proizvodi za ljude koji rade od 9 do 5.<br>MojBiznis.online je brend obrta Kvik iz Hrvatske.</p>
 </div>
 <nav aria-label="Podnožje" class="footer-links">
 <a href="mailto:kontakt@mojbiznis.online">kontakt@mojbiznis.online</a>
 <a href="/privatnost">Politika privatnosti</a>
 <a href="/uvjeti">Uvjeti korištenja</a>
-<span>© 2026 MojBiznis</span>
+<span>© 2026 MojBiznis.online</span>
 </nav>
 </div>
 </footer>
