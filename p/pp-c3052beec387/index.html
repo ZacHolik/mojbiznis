@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="hr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paket promptova | MojBiznis.online</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#332713">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --espresso: #332713;
+    --espresso-2: #3A2E1C;
+    --ink: #120F0E;
+    --wine: #581923;
+    --wine-hover: #6B2130;
+    --wine-card: #48141D;
+    --cream: #EBDDC4;
+    --cream-2: #DBD8D3;
+    --rose: #DE8A94;
+    --muted: #B3A59C;
+    --line: rgba(235, 221, 196, 0.16);
+    --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    --max: 1120px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--espresso);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  p { margin: 0 0 1em; }
+  :focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+  section { padding: 72px 0; }
+  @media (min-width: 900px) {
+    .wrap { padding: 0 32px; }
+    section { padding: 112px 0; }
+  }
+
+  .skip {
+    position: absolute; left: -9999px; top: 0;
+    background: var(--cream); color: var(--wine); padding: 10px 16px; z-index: 10;
+  }
+  .skip:focus { left: 12px; top: 12px; }
+
+  .eyebrow {
+    margin: 0 0 18px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+  }
+  h1, h2, h3 {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--cream-2);
+  }
+  h1 { font-size: clamp(2.6rem, 8.5vw, 5.2rem); }
+  h2 { font-size: clamp(2rem, 5.6vw, 3.3rem); }
+  h3 { font-size: clamp(1.45rem, 3vw, 1.8rem); line-height: 1.18; }
+  .lead { max-width: 36em; margin: 26px 0 0; font-size: clamp(1.1rem, 2.4vw, 1.3rem); }
+  .muted { color: var(--muted); }
+  .nowrap { white-space: nowrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 52px; padding: 14px 26px;
+    border: 1.5px solid transparent; border-radius: 999px;
+    font-family: var(--sans); font-size: 1rem; font-weight: 600; line-height: 1.2;
+    text-decoration: none; text-align: center;
+    transition: background-color .2s, border-color .2s, color .2s;
+  }
+  .btn-primary { background: var(--wine); border-color: var(--wine); color: var(--cream); }
+  .btn-primary:hover { background: var(--wine-hover); border-color: var(--wine-hover); }
+  .btn-outline { background: transparent; border-color: rgba(235, 221, 196, 0.5); color: var(--cream); }
+  .btn-outline:hover { border-color: var(--cream); }
+  .btn-cream { background: var(--cream); border-color: var(--cream); color: var(--wine); }
+  .btn-cream:hover { background: #F4E9D6; border-color: #F4E9D6; }
+  .btn-small { min-height: 42px; padding: 9px 18px; font-size: 0.92rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .note { margin: 16px 0 0; font-size: 0.92rem; color: var(--muted); }
+
+  /* Zaglavlje */
+  .site-header { padding: 20px 0; }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; color: var(--cream-2); text-decoration: none; }
+  .header-links { display: flex; align-items: center; gap: 22px; }
+  .header-links .plain { display: none; font-size: 0.95rem; color: var(--muted); text-decoration: none; }
+  .header-links .plain:hover { color: var(--cream); }
+  @media (min-width: 700px) { .header-links .plain { display: inline; } }
+
+  /* Hero */
+  .hero { padding: 48px 0 88px; }
+  @media (min-width: 900px) { .hero { padding: 88px 0 128px; } }
+  .hero h1 { max-width: 13em; }
+  .how { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 12px; max-width: 34em; }
+  .how li { display: flex; align-items: baseline; gap: 14px; font-size: 1.08rem; }
+  .how-num { flex: 0 0 auto; min-width: 1.1em; font-family: var(--serif); font-size: 1.4rem; line-height: 1; color: var(--rose); }
+
+  /* Izjava */
+  .statement-band { background: var(--ink); padding: 64px 0; }
+  @media (min-width: 900px) { .statement-band { padding: 88px 0; } }
+  .statement {
+    max-width: 24em; margin: 0 auto; text-align: center;
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    font-size: clamp(1.45rem, 3.6vw, 2.2rem); line-height: 1.35; color: var(--cream-2);
+  }
+
+  /* Dokaz: kvik */
+  .proof { background: var(--espresso-2); }
+  .proof-grid { display: grid; gap: 8px; }
+  .proof-grid > div { min-width: 0; }
+  @media (min-width: 900px) {
+    .proof-grid { grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .proof-lead { margin-top: 34px; }
+  }
+  .proof h2 { max-width: 13em; }
+  .facts { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--line); }
+  .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .facts span:first-child { color: var(--muted); white-space: nowrap; }
+  .facts span:last-child { text-align: right; }
+
+  .shots {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 82%;
+    gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px;
+    margin: 48px -20px 0; padding: 0 20px 8px;
+  }
+  @media (min-width: 900px) {
+    .shots { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); gap: 22px; overflow: visible; margin: 64px 0 0; padding: 0; }
+    .shot img { max-height: 600px; object-fit: cover; object-position: top center; }
+  }
+  .shot { margin: 0; scroll-snap-align: start; }
+  .shot a { display: block; border-radius: 14px; }
+  .shot img { width: 100%; height: auto; aspect-ratio: 25 / 26; object-fit: cover; object-position: top center; border-radius: 14px; border: 1px solid var(--line); background: var(--ink); }
+  .shot-placeholder {
+    display: none; aspect-ratio: 1 / 1;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 18px; border: 1.5px dashed rgba(235, 221, 196, 0.38); border-radius: 14px;
+    background: rgba(18, 15, 14, 0.4); color: var(--muted); font-size: 0.9rem; line-height: 1.45;
+  }
+  .shot.is-empty .shot-placeholder { display: flex; }
+  .shot figcaption { margin-top: 10px; font-size: 0.9rem; color: var(--muted); }
+  .proof-close { margin-top: 32px; }
+
+  /* Tri koraka */
+  .steps-intro { max-width: 34em; margin: 22px 0 0; }
+  .cards { display: grid; gap: 18px; margin-top: 48px; }
+  @media (min-width: 900px) { .cards { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
+  .card {
+    position: relative; display: flex; flex-direction: column;
+    padding: 30px 26px 28px; border: 1px solid var(--line); border-radius: 18px;
+    background: var(--espresso-2);
+  }
+  .card.is-entry { border-color: rgba(222, 138, 148, 0.55); }
+  .badge {
+    position: absolute; top: -13px; right: 22px;
+    padding: 4px 12px; border-radius: 999px;
+    background: var(--rose); color: var(--ink);
+    font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .step-num { font-family: var(--serif); font-size: 2.6rem; line-height: 1; color: var(--rose); }
+  .step-label { margin: 12px 0 10px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .card h3 { margin-bottom: 18px; }
+  .product-line { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 12px; margin: 0 0 12px; font-weight: 600; color: var(--cream); }
+  .product-line .price { color: var(--rose); }
+  .card p.desc { color: var(--cream); }
+  .card .more { margin-top: auto; padding-top: 10px; }
+  .text-link { font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(235, 221, 196, 0.45); padding-bottom: 2px; }
+  .text-link:hover { border-bottom-color: var(--cream); }
+
+  .start {
+    display: grid; gap: 22px; margin-top: 22px;
+    padding: 32px 26px; border-radius: 18px; background: var(--wine-card);
+  }
+  @media (min-width: 900px) { .start { grid-template-columns: 1fr auto; align-items: center; padding: 40px 44px; gap: 40px; } }
+  .start h3 { margin-bottom: 10px; }
+  .start p { margin: 0; max-width: 36em; }
+
+  /* Što se mijenja */
+  .changes { background: var(--ink); }
+  .change-list { list-style: none; margin: 44px 0 0; padding: 0; border-top: 1px solid var(--line); }
+  .change-list li { display: grid; gap: 6px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .change-list .from { color: var(--muted); }
+  .change-list .to { font-family: var(--serif); font-size: clamp(1.2rem, 2.6vw, 1.45rem); line-height: 1.3; color: var(--cream-2); }
+  .change-list .to::before { content: "→ "; color: var(--rose); font-family: var(--sans); }
+  .change-list .arrow { display: none; }
+  @media (min-width: 900px) {
+    .change-list li { grid-template-columns: 1fr 48px 1fr; align-items: baseline; gap: 16px; }
+    .change-list .arrow { display: block; color: var(--rose); text-align: center; }
+    .change-list .to::before { content: none; }
+  }
+
+  /* Za koga */
+  .fit { background: var(--espresso-2); }
+  .fit-grid { display: grid; gap: 18px; margin-top: 44px; }
+  @media (min-width: 900px) { .fit-grid { grid-template-columns: 1fr 1fr; gap: 22px; } }
+  .fit-box { padding: 30px 26px; border: 1px solid var(--line); border-radius: 18px; }
+  .fit-box h3 { margin-bottom: 16px; }
+  .fit-box ul { list-style: none; margin: 0; padding: 0; }
+  .fit-box li { position: relative; padding: 10px 0 10px 26px; border-top: 1px solid var(--line); }
+  .fit-box li:first-child { border-top: 0; }
+  .fit-box li::before { content: ""; position: absolute; left: 2px; top: 1.15em; width: 9px; height: 9px; border-radius: 50%; }
+  .fit-yes li::before { background: var(--rose); }
+  .fit-no li::before { border: 1.5px solid var(--muted); }
+
+  /* Završni poziv */
+  .final { background: var(--wine); text-align: center; }
+  .final h2 { max-width: 14em; margin: 0 auto; }
+  .final .lead { margin-left: auto; margin-right: auto; }
+  .final .actions { justify-content: center; }
+  .final .others { margin: 26px 0 0; font-size: 0.98rem; }
+  .final .others a { white-space: nowrap; }
+  .final .note { color: rgba(235, 221, 196, 0.78); }
+
+  /* Podnožje */
+  .site-footer { background: var(--ink); padding: 44px 0; font-size: 0.92rem; color: var(--muted); }
+  .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 22px 40px; }
+  .footer-brand .wordmark { font-size: 1.3rem; }
+  .footer-brand p { margin: 6px 0 0; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
+  .footer-links a { text-decoration: none; }
+  .footer-links a:hover { color: var(--cream); }
+
+  .pp { padding: 40px 0 96px; }
+  .pp h1 { max-width: 12em; }
+  .block { margin-top: 56px; }
+  .letter p { max-width: 40em; }
+  .files { display: grid; gap: 16px; margin-top: 22px; }
+  @media (min-width: 900px) { .files { grid-template-columns: 1fr 1fr; } }
+  .files label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--cream-2); }
+  .files textarea { width: 100%; min-height: 150px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--ink); color: var(--cream); font: 0.9rem/1.5 ui-monospace, Menlo, Consolas, monospace; resize: vertical; }
+  .saved { margin-top: 10px; font-size: 0.9rem; color: var(--muted); }
+  .how-list { list-style: none; margin: 22px 0 0; padding: 0; border-top: 1px solid var(--line); max-width: 46em; }
+  .how-list li { display: grid; grid-template-columns: 2em 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .how-list .how-num { font-family: var(--serif); font-size: 1.5rem; line-height: 1; color: var(--rose); }
+  .rule-list { margin: 18px 0 0; padding-left: 1.1em; max-width: 46em; }
+  .rule-list li { margin-bottom: 10px; }
+  .grp { margin-top: 72px; }
+  .grp-desc { color: var(--muted); margin-top: 8px; }
+  .pcard { margin-top: 22px; padding: 26px 22px; border: 1px solid var(--line); border-radius: 18px; background: var(--espresso-2); }
+  .pcard-head { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; }
+  .pcard-head h3 { margin-bottom: 6px; }
+  .pcard-head p { margin: 0; }
+  .pcard .facts { margin-top: 18px; }
+  .pcard .facts li { display: block; }
+  .pcard .facts span { display: block; text-align: left; }
+  .pcard .facts span:first-child { margin-bottom: 4px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); white-space: normal; }
+  .block h2 { margin-bottom: 18px; }
+  .pbox { position: relative; margin-top: 20px; border-radius: 14px; background: var(--ink); border: 1px solid var(--line); }
+  .pbar { position: sticky; top: 8px; z-index: 2; display: flex; justify-content: flex-end; padding: 10px 10px 0; }
+  .pbar .copy { box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+  .pbox pre { margin: 0; padding: 10px 16px 18px; overflow-x: auto; white-space: pre-wrap; font: 0.86rem/1.55 ui-monospace, Menlo, Consolas, monospace; color: var(--cream); }
+  .tips { margin: 16px 0 0; padding-left: 1.1em; color: var(--muted); font-size: 0.95rem; }
+  .tips li { margin-bottom: 6px; }
+  .toast { position: fixed; left: 50%; bottom: 20px; transform: translate(-50%, 140%); transition: transform .2s ease;
+    padding: 10px 18px; border-radius: 999px; background: var(--cream); color: var(--wine); font-weight: 600; z-index: 30; }
+  .toast { visibility: hidden; }
+  .toast.show { transform: translate(-50%, 0); visibility: visible; }
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="wordmark" href="/">MojBiznis.online</a>
+<nav class="header-links"><a class="btn btn-outline btn-small" href="/p/pp-c3052beec387/Paket_promptova.pdf" download>PDF</a></nav></div></header>
+<main class="pp"><div class="wrap">
+  <p class="eyebrow">Paket promptova</p>
+  <h1>Dvanaest promptova, kopiraš ih jednim dodirom.</h1>
+  <p class="lead">Dvanaest promptova koji se oslanjaju na tvoju datoteku glasa: opisi objava, karuseli, udice za priče i odgovori koji komentare pretvaraju u razgovore. Spremi ovu stranicu u oznake. Tvoja je.</p>
+  <div class="actions"><a class="btn btn-primary" href="#prompts">Idi na promptove</a><a class="btn btn-outline" href="/p/pp-c3052beec387/Paket_promptova.pdf" download>Preuzmi PDF</a></div>
+
+  <section class="block letter"><p class="eyebrow">Pismo prije početka</p><h2>Hvala ti i za ovo.</h2><p>Paket „Tvoje Instagram objave bez pokazivanja lica” pokazao ti je kako doći do ljudi. Ovih dvanaest promptova služi za ono što pišeš kad te ljudi već gledaju: opis ispod reela, karusel, priču koju objavljuješ svako jutro i odgovor koji komentar pretvara u razgovor.</p><p>Svaki prompt počinje isto: tvojom datotekom glasa i tvojim blokom publike. Zbog datoteke glasa tekst zvuči kao ti. Zbog bloka publike obraća se pravoj osobi. Bez njih dobiješ isti ravni tekst koji dobivaju svi ostali.</p><p>U svaki prompt ugrađena su i ista tri pravila. Prompt koristi samo činjenice koje mu daš. Nikad ne izmišlja broj, rezultat ni citat. I nikad ne obećava novac. Ta tri pravila čuvaju vjerodostojnost tvojih objava i sigurnost tvog oglasnog računa.</p><p>Koristi ih točno onakve kakvi jesu. Kad nađeš bolju formulaciju, promijeni svoju kopiju i spremi je u bilješke. Tako postaju tvoji.</p><p>Sretno s onim što gradiš. Počni večeras s promptom 09.</p><p class="muted">Željko Holik, MojBiznis.online</p></section>
+
+  <section class="block"><p class="eyebrow">Uštedi vrijeme</p><h2>Zalijepi svoje dvije datoteke jednom.</h2>
+    <div class="files">
+      <div><label for="voice">Tvoja datoteka glasa (sustav 02)</label><textarea id="voice" placeholder="DATOTEKA GLASA&#10;Za koga pišem: ..."></textarea></div>
+      <div><label for="aud">Tvoj blok publike (sustav 03, lekcija 9)</label><textarea id="aud" placeholder="PUBLIKA&#10;Tko su (posao, situacija): ..."></textarea></div>
+    </div>
+    <p class="saved" id="saved"></p>
+  </section>
+
+  <section class="block"><p class="eyebrow">Kako ih koristiti</p><h2>Tri koraka, svaki put.</h2><ol class="how-list"><li><span class="how-num">1</span><span><strong>Otvori svoje bilješke.</strong> Kopiraj datoteku glasa (sustav 02) i blok publike (sustav 03, lekcija 9). Još nemaš blok publike? Treba ti deset minuta. Napravi ga najprije.</span></li><li><span class="how-num">2</span><span><strong>Otvori novi razgovor.</strong> U Claudeu ili ChatGPT-ju, jedan prompt po razgovoru. Zalijepi prompt, a svoje dvije datoteke stavi ondje gdje to kažu prva dva retka. Ispuni sve u [UGLATIM ZAGRADAMA]. Ono u &lt;šiljastim zagradama&gt; ne diraj: tako AI zna kamo idu tvoji podaci.</span></li><li><span class="how-num">3</span><span><strong>Pročitaj jednom naglas.</strong> Ako neka riječ zvuči krivo, ne popravljaj tekst. Dodaj tu riječ u datoteku glasa i ponovno pokreni prompt. Tako je popraviš za svaki sljedeći prompt.</span></li></ol>
+    <h3 style="margin-top:36px">Četiri pravila zbog kojih rade</h3><ul class="rule-list"><li><strong>Prvo odaberi ključnu riječ.</strong> Pokreni prompt 09 prije nego što novu ključnu riječ upotrijebiš bilo gdje. Riječ koja se javlja u običnim komentarima („love”, „batch”, „ready”) šalje tvoj link ljudima koji ga nikad nisu tražili.</li><li><strong>Jedna ključna riječ, jedna stvar.</strong> Ključna riječ uvijek šalje istu stvar. Ako BAKES šalje tvoje recepte, šalje ih svugdje: u objavama, u pričama, u drugoj poruci. Trebaš poslati nešto drugo? Uzmi novu ključnu riječ.</li><li><strong>Napiši „nema” kad nemaš ništa.</strong> Svako polje koje smije ostati prazno to i kaže. Napiši „nema” i prompt će to zaobići umjesto da nešto izmisli.</li><li><strong>Provjeri činjenice koje dobiješ.</strong> Promptovi AI-ju govore da ništa ne izmišlja. Ako ipak nešto izmisli, obriši to. Izmišljen broj jedina je stvar koja te može stajati povjerenja kupca ili oglasnog računa.</li></ul></section>
+
+  <section class="block"><p class="eyebrow">Koji prompt kada</p><ul class="facts" style="max-width:46em"><li><span>Tvoje mjesečno sjedenje (sustav 04)</span><span>01 za svaki reel, 05 za karusele, 09 kad ti treba nova ključna riječ</span></li><li><span>Nedjelja navečer</span><span>08: pet priča za cijeli tjedan</span></li><li><span>Svako jutro</span><span>07, ako tjedan nije napisan u nedjelju</span></li><li><span>Jednom tjedno</span><span>03: jasno reci što prodaješ. 02 kad imaš što pokazati</span></li><li><span>Jednom mjesečno</span><span>04: nove teme za karusele. 06 kad imaš priču koju vrijedi ispričati</span></li><li><span>Postavljanje automatizacije</span><span>Prvo 10, zatim 11 za ljude koji se vrate</span></li><li><span>Svaki dan, deset minuta</span><span>12 za komentare, poruke i nove pratitelje</span></li></ul></section>
+
+  <section id="prompts"><h2 class="grp" id="g-captions">Opisi</h2><p class="grp-desc">Riječi ispod objave i poziv na njihovom kraju.</p>
+<article class="pcard" id="p01">
+  <div class="pcard-head">
+    <span class="step-num">01</span>
+    <div><h3>Opis ispod reela</h3><p class="muted">Reel je gotov i trebaju ti riječi ispod njega.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Tekst s ekrana, pitanje na koje odgovara, sve ostalo što je istina i tvoja ključna riječ.</span></li><li><span>Dobivaš</span><span>Dva opisa, slabo mjesto u svakom i završni redak za ekran.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="01" type="button">Kopiraj prompt 01</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Napiši opis objave za ovaj reel.
+
+Tekst na ekranu, redom: [RETCI KOJI SE POJAVLJUJU NA EKRANU]
+Pitanje na koje ovaj reel odgovara: [JEDNA REČENICA]
+Još nešto istinito što mogu iskoristiti: [DETALJ, BROJ ili „nema”]
+Ključna riječ: [RIJEČ ili „nema”]
+Šalje: [BESPLATNA STVAR, RIJEČIMA KOJE UVIJEK KORISTIŠ]
+
+Pravila:
+- Prvi redak je druga udica, za nekoga tko je zastao na videu i sad
+  čita. Ne ponavljaj prvi redak s ekrana. Najviše 12 riječi.
+- Zatim 3 do 6 kratkih rečenica koje dovršavaju misao, bez
+  ponavljanja onoga što je već na ekranu. Svaka rečenica treba
+  potaknuti čitanje sljedeće.
+- Zadnja rečenica: „Napiši &lt;ključna riječ&gt; za &lt;besplatna stvar&gt;”, s
+  mojim točnim riječima za besplatnu stvar. Ako je ključna riječ
+  „nema”, umjesto toga završi pitanjem na koje se može odgovoriti
+  jednom ili dvjema riječima.
+- Hashtagovi idu u zaseban redak nakon toga, najviše 3.
+- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako
+  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne
+  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj
+  proizvod radi.
+
+Daj mi dvije verzije. Ispod svake navedi rečenicu na kojoj će
+čitatelj najvjerojatnije stati i kako je popraviti.
+Zatim napiši jedan redak od najviše 7 riječi koji traži komentar,
+za prikaz na ekranu u zadnje dvije sekunde reela.</pre>
+  </div>
+  <ul class="tips"><li>Većina ljudi nikad ne otvori opis. Poziv mora biti i na ekranu, a za to služi zadnji redak.</li><li>Besplatnu stvar svugdje zovi istim imenom: na ekranu, u opisu i u poruci koja je dostavlja (sustav 05, lekcija 16).</li></ul>
+</article>
+<article class="pcard" id="p02">
+  <div class="pcard-head">
+    <span class="step-num">02</span>
+    <div><h3>Dokaz u objavi</h3><p class="muted">Želiš da ljudi vide da znaš svoj posao, bez pokazivanja novca ili lica.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Tvoje područje i ključna riječ. U 2. koraku: što pokazuje fotografija i što se stvarno dogodilo.</span></li><li><span>Dobivaš</span><span>Deset vrsta dokaza koje možeš snimiti bez lica, zatim objava složena oko onog koji odabereš.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="02" type="button">Kopiraj prompt 02</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Želim pokazati dokaz da znam svoj posao, a moje područje je:
+[TVOJE PODRUČJE]. Ne prihod i ne snimke zaslona s novcem. Dokaz u
+samoj stvari.
+Ključna riječ: [RIJEČ]   Šalje: [STVAR]
+
+1. korak: Navedi 10 vrsta dokaza koje netko u mom području može
+pokazati. Za svaku reci kako je snimiti ili fotografirati bez mog
+lica: ruke, predmeti, gotov rezultat, ekran, mjesto.
+Zatim stani i pričekaj da jednu odaberem.
+
+2. korak: Kad odaberem, reći ću ti što fotografija ili video pokazuje
+i što se stvarno dogodilo. Ako bi pomogao broj, a broja nema, pitaj
+me prije nego što počneš pisati. Zatim napiši:
+- prvi redak na ekranu, najviše 7 riječi
+- opis od 4 do 7 rečenica: što gledaju, što se dogodilo i zašto je
+  to važno nekome poput moje publike
+- zatim zadnji redak: „Napiši &lt;ključna riječ&gt; za &lt;stvar&gt;.”
+
+Pravila:
+- Malo i točno pobjeđuje veliko i okruglo. „Troje ljudi u dva tjedna”
+  bolje je od „puno ljudi”.
+- Ako ti dam nešto što je rekao kupac, prvo napiši sažetak u jednom
+  retku, zatim citat.
+- Ne obećavaj čitatelju isti rezultat.
+- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako
+  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne
+  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj
+  proizvod radi.</pre>
+  </div>
+  <ul class="tips"><li>Dokaz je u tvom području, a ne na tvom bankovnom računu. Stol pun ljudi koji jedu dokaz je za kuhara. Gotov posao dokaz je za obrtnika (sustav 03, lekcija 14).</li><li>Snimke zaslona s novcem dovode do odbijanja oglasa (sustav 06, lekcija 17), pa ih ovaj prompt nikad ne traži.</li></ul>
+</article>
+<article class="pcard" id="p03">
+  <div class="pcard-head">
+    <span class="step-num">03</span>
+    <div><h3>Jasna ponuda</h3><p class="muted">Jednom tjedno, da jasno kažeš što prodaješ.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Proizvod, cijena, tri stvari koje sadrži, za koga je, ključna riječ i stvarni rok ili „nema”.</span></li><li><span>Dobivaš</span><span>Četiri retka za ekran, opis i dva druga početka za testiranje.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="03" type="button">Kopiraj prompt 03</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Napiši objavu koja jasno kaže što prodajem.
+Bez podučavanja, bez priče.
+
+Naziv proizvoda, kako ga ja pišem: [NAZIV]
+Što im pomaže postići (ne novac): [JEDAN REDAK]
+Što sadrži: [3 STVARI]
+Cijena: [CIJENA]
+Za koga je, prema njihovoj situaciji: [JEDAN REDAK]
+Ključna riječ: [RIJEČ]
+Šalje: [ŠTO LINK OTVARA, npr. stranicu za kupnju]
+Stvarni rok ili limit: [ISTINIT DATUM ILI OGRANIČENJE ili „nema”]
+
+Tekst na ekranu: 4 kratka retka u ovom obliku. Skrati moje podatke
+da stanu, ali naziv proizvoda i cijenu ostavi točno kako su napisani.
+„Želiš &lt;što im pomaže postići&gt;?
+&lt;Naziv proizvoda&gt;: &lt;stvar 1&gt;, &lt;stvar 2&gt; i &lt;stvar 3&gt;.
+&lt;Cijena&gt;.
+Napiši &lt;ključna riječ&gt; za &lt;ono što šalje&gt;.”
+
+Zatim opis od 3 do 5 rečenica koji kaže za koga je i završava istim
+pozivom. Zatim dvije druge verzije prvog retka na ekranu.
+
+Pravila:
+- Za koga je, reci prema njihovoj situaciji („za ljude koji peku
+  između smjena”), nikad prema problemu ili osjećaju. Bez „Nemaš
+  novca?”, „Mučiš li se s…?” ili „Dosta ti je…?”.
+- Bez obećanja prihoda. Bez „zajamčeno”, „pasivno” ili „lak novac”.
+- Ako je rok „nema”, ne dodaj nikakvu hitnost.
+- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako
+  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne
+  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj
+  proizvod radi.</pre>
+  </div>
+  <ul class="tips"><li>Ovakva objava često dobije manje pregleda i više prodaja od svega ostalog što objaviš. Jednom tjedno je dovoljno.</li><li>Rečenice koje opisuju čitatelja („Mučiš li se s dugovima?”) dovode do odbijanja oglasa (sustav 06, lekcija 17). Rečenice koje opisuju proizvod ne dovode.</li></ul>
+</article><h2 class="grp" id="g-carousels">Karuseli</h2><p class="grp-desc">Ideje koje grade povjerenje i slajdovi koje ljudi stvarno listaju.</p>
+<article class="pcard" id="p04">
+  <div class="pcard-head">
+    <span class="step-num">04</span>
+    <div><h3>Teme o kojima nitko ne govori</h3><p class="muted">Trebaju ti ideje za karusele koje grade povjerenje.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Tvoje područje i tvoja država.</span></li><li><span>Dobivaš</span><span>Petnaest tema koje tvoje područje izbjegava, svaka sa strahom na koji odgovara i prvim slajdom.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="04" type="button">Kopiraj prompt 04</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Svako područje ima teme koje ljudi javno izbjegavaju: stvarna cijena,
+koliko često ne uspije, koliko stvarno traje, što se ne može
+napraviti, za koga nije i što su ljudi u tom području radili krivo
+prije nego što su počeli raditi kako treba.
+
+Moje područje: [TVOJE PODRUČJE]   Moja država: [DRŽAVA]
+
+Navedi 15 takvih tema. Za svaku daj:
+- temu, u jednom retku
+- strah moje publike na koji tema odgovara, jednostavnim riječima
+- prvi slajd, najviše 7 riječi, bez brojeva
+- što trebam podijeliti da bude iskreno (priču, broj, grešku),
+  napisano kao pitanje na koje mogu odgovoriti
+
+Poredaj ih od najlakše do najteže za objavu.
+Zatim po broju navedi 3 o kojima moja publika najviše želi čuti.
+Daj rezultat kao tablicu.
+
+Pravila:
+- Ne navodi cijene, pravila ni zakone kao činjenice. Ako tema dira u
+  zakon, reci to i pusti mene da provjerim.
+- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako
+  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne
+  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj
+  proizvod radi.</pre>
+  </div>
+  <ul class="tips"><li>Objava koju se pomalo bojiš objaviti obično ti je najbolja (sustav 03, lekcija 21).</li><li>Kreni s vrha popisa. Najtežu ne moraš objaviti prvu.</li></ul>
+</article>
+<article class="pcard" id="p05">
+  <div class="pcard-head">
+    <span class="step-num">05</span>
+    <div><h3>Karusel korak po korak</h3><p class="muted">Odgovor na pitanje ima korake ili je popis.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Pitanje, tvoj odgovor u grubim bilješkama, ključna riječ i što šalje.</span></li><li><span>Dobivaš</span><span>Šest do deset slajdova i opis, plus popis svega što fali u tvojim bilješkama.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="05" type="button">Kopiraj prompt 05</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Pretvori ovo u karusel.
+
+Pitanje na koje odgovara: [JEDNA REČENICA]
+Moj odgovor, u grubim bilješkama: [BILJEŠKE, NEUREDNE KOLIKO HOĆEŠ]
+Ključna riječ: [RIJEČ]   Šalje: [STVAR]
+
+Pravila:
+- Ukupno 6 do 10 slajdova. Nikad više od 10.
+- Slajd 1: prvi redak, najviše 7 riječi. Imenuje njihovu situaciju,
+  ne moju temu.
+- Slajd 2 ima jedan posao: da opet povuku dalje. Ovdje ne počinji
+  objašnjavati. Upotrijebi obećanje, iznenađenje ili ono što ih košta
+  ako to ne znaju.
+- Zatim jedna poanta po slajdu, najviše 25 riječi. Ako moje bilješke
+  imaju više koraka nego što stane, spoji male i reci mi koje.
+- Zadnji slajd: „Napiši &lt;ključna riječ&gt; za &lt;stvar&gt;.”
+- Opis: 2 do 4 rečenice, završava istim pozivom.
+- Ako bi čitatelju trebao korak ili broj kojeg nema u mojim
+  bilješkama, nemoj stati da me pitaš. Na tom slajdu napiši
+  „NEDOSTAJE:” i što nedostaje, i nemoj to sam popunjavati.
+- Koristi samo činjenice iz mojih bilješki i mojih dviju datoteka.
+  Nikad ne izmišljaj brojke, rezultate ni citate.
+
+Daj rezultat slajd po slajd, zatim opis, zatim popis svega što je
+označeno s NEDOSTAJE.</pre>
+  </div>
+  <ul class="tips"><li>Karuseli s više od deset slajdova kasnije se ne mogu promovirati (sustav 04, lekcija 9).</li><li>Na drugom slajdu karuseli umiru. Ako tvoj objašnjava umjesto da vuče dalje, zatraži još pet verzija samo drugog slajda.</li></ul>
+</article>
+<article class="pcard" id="p06">
+  <div class="pcard-head">
+    <span class="step-num">06</span>
+    <div><h3>Karusel s iskrenom pričom</h3><p class="muted">Nešto je jednom pošlo po zlu, a način na koji je riješeno umirio bi budućeg kupca.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Pitanje, što se dogodilo, kako je riješeno, tri pouke i tvoja ključna riječ.</span></li><li><span>Dobivaš</span><span>Devet slajdova koji zadržavaju neugodan dio i opis od tri rečenice.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="06" type="button">Kopiraj prompt 06</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Pretvori moju priču u karusel.
+
+Pitanje koje moja publika postavlja: [JEDNA REČENICA]
+Što se dogodilo, grubo i istinito: [TVOJA PRIČA]
+Kako je riješeno: [TVOJE RJEŠENJE]
+Što danas savjetujem drugima: [3 TOČKE, GRUBO]
+Ključna riječ: [RIJEČ]   Šalje: [STVAR]
+
+Devet slajdova:
+- Slajd 1 jasno imenuje neugodan dio, najviše 7 riječi.
+- Slajdovi 2 do 4: što se dogodilo, kratkim rečenicama. Zadrži dio
+  u kojem ne ispadam dobro. Taj dio je razlog za objavu.
+- Slajd 5: kako je riješeno.
+- Slajdovi 6 do 8: 3 točke, po jedna na slajdu.
+- Slajd 9: „Napiši &lt;ključna riječ&gt; za &lt;stvar&gt;.”
+
+Opis, 3 rečenice: zašto ovo dijelim, što se promijenilo i isti poziv.
+
+Pravila:
+- Ne čini kraj sretnijim nego što je bio.
+- Ne povezuj moju priču s onim što ključna riječ šalje, osim ako je
+  ta veza već u mojoj priči.
+- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako
+  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne
+  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj
+  proizvod radi.</pre>
+  </div>
+  <ul class="tips"><li>Tvoj kupac već ima taj strah: što ako platim, a rezultat mi se ne svidi? Osoba koja pokaže kako je to riješila jedina je u feedu koja je na njega odgovorila.</li><li>Priču prvo napiši loše, svojim riječima. Prompt zadržava tvoje činjenice i sređuje redoslijed.</li></ul>
+</article><h2 class="grp" id="g-stories">Priče</h2><p class="grp-desc">Jedna slika, jedan blok teksta, jedna riječ za odgovor. Svako jutro.</p>
+<article class="pcard" id="p07">
+  <div class="pcard-head">
+    <span class="step-num">07</span>
+    <div><h3>Priča dana</h3><p class="muted">Svako jutro, za onu jednu priču koja prodaje.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Što nudiš, cijena, ključna riječ, što link otvara i jedna istinita stvar ili „nema”.</span></li><li><span>Dobivaš</span><span>Pet naslova, jedan blok teksta, redak s pozivom na odgovor i ideja za sliku bez tvog lica.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="07" type="button">Kopiraj prompt 07</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Napiši današnju Instagram priču. To je jedna slika s tekstom na njoj.
+
+Što nudim: [PROIZVOD ILI BESPLATNA STVAR, JEDAN REDAK]
+Cijena: [CIJENA ili „besplatno”]
+Ključna riječ: [RIJEČ]
+Šalje: [ŠTO LINK OTVARA, npr. stranicu za kupnju]
+Jedna istinita stvar iz ovog tjedna:
+   [PRODAJA, PORUKA, BROJ ili „nema”]
+
+Daj mi:
+1. Pet naslova, najviše 8 riječi. Koristi ove oblike gdje su za mene
+   istiniti: „Ovo radim prvi put”, „Svi ovo koriste za…”, „Da krećem
+   ispočetka…”, „Prijateljska napomena:”, „Savjet za početnike:”. Ako
+   oblik nije istinit, napiši naslov koji umjesto toga imenuje
+   njihovu situaciju.
+2. Jedan blok teksta, od 60 do 110 riječi. Prva rečenica mora samo
+   navesti ljude da pročitaju drugu. U prve dvije rečenice stavi dvije
+   ili tri upadljive riječi, i to samo riječi koje su istinite.
+   Zadrži moje kratke rečenice, ali drži blok na okupu: u priči
+   ljude zaustavi upravo dug blok.
+3. Zadnji redak: „Odgovori &lt;ključna riječ&gt; i poslat ću ti
+   &lt;ono što šalje&gt;.”
+4. Jednu ideju za sliku iz običnog života, bez lica, koja paše.
+
+Pravila:
+- Istinitu stvar u tekstu iskoristi točno onako kako je napisana. Ako
+  je riječ o kupcu, ispričaj to kao ono što mi je rekao. Ne tvrdi da
+  je koristio moj proizvod ako to ne piše u mojim podacima i ne
+  obećavaj čitatelju isti rezultat.
+- Ako cijena nije „besplatno”, neka bude jasno da link vodi na kupnju.
+- Ne ispričavaj se što prodaješ. Bez naljepnice s linkom: odgovor je
+  radnja.
+- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako
+  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne
+  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj
+  proizvod radi.</pre>
+  </div>
+  <ul class="tips"><li>Traži odgovor, a ne dodir na link. U jednom usporednom testu verzija s odgovorom došla je do otprilike pet puta više ljudi (prvi bonus, lekcija 15).</li><li>Novu priču objavi tek kad jučerašnja istekne (prvi bonus, lekcija 18).</li></ul>
+</article>
+<article class="pcard" id="p08">
+  <div class="pcard-head">
+    <span class="step-num">08</span>
+    <div><h3>Tjedan priča</h3><p class="muted">Nedjelja navečer, da ti svako jutro traje trideset sekundi.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Tvoja ponuda, što sadrži, ključne riječi, glavni razlog zašto ljudi ne kupuju i istinite stvari koje imaš.</span></li><li><span>Dobivaš</span><span>Pet različitih priča, jedna dnevno, svaka s naslovom, tekstom, retkom za odgovor i idejom za sliku.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="08" type="button">Kopiraj prompt 08</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Napiši pet Instagram priča za ovaj tjedan, jednu dnevno.
+
+Što nudim i cijena: [JEDAN REDAK]
+Što sadrži: [3 STVARI]
+Šalje: [ŠTO LINK OTVARA, npr. stranicu za kupnju]
+Moje ključne riječi, sve šalju isti link: [3 DO 5 RIJEČI]
+Glavni razlog zašto ljudi ne kupuju: [JEDAN REDAK ili „ne znam”]
+Što bi bilo drukčije da krećem ispočetka: [JEDAN REDAK ili „nema”]
+Istinite stvari za upotrebu: [PRODAJE, PORUKE, CITATI ili „nema”]
+
+Svaka priča: naslov (najviše 8 riječi), jedan blok teksta od 60 do
+110 riječi i redak „Odgovori &lt;jedna od mojih ključnih riječi&gt; i poslat
+ću ti &lt;ono što šalje&gt;.” Svaku ključnu riječ upotrijebi barem jednom.
+Zadrži moje kratke rečenice, ali drži svaki blok na okupu: u priči
+ljude zaustavi upravo dug blok.
+
+Neka pet priča bude različito:
+1. Odgovara na glavni razlog zašto ljudi ne kupuju. Ako tamo piše
+   „ne znam”, odaberi najvjerojatniji razlog za moju publiku i reci
+   mi koji.
+2. Jasno kaže što je to, što sadrži i koliko košta.
+3. Koristi jednu istinitu stvar s mog popisa. Citat dobiva sažetak u
+   jednom retku prije njega. Ako na popisu piše „nema”, umjesto toga
+   odgovori na pitanje koje bi moja publika postavila o ponudi.
+4. Naslov „Da krećem ispočetka…”, s onim što bi danas bilo drukčije.
+   Ako tamo piše „nema”, upotrijebi „Savjet za početnike:” sa
+   savjetom uzetim samo iz onoga što je u ponudi.
+5. Jedna mala, konkretna stvar u kojoj ponuda pomaže.
+
+Za svaki dan predloži jednu sliku: običan život, bez lica.
+- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako
+  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne
+  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj
+  proizvod radi.
+
+Daj rezultat kao Dan 1 do Dan 5.</pre>
+  </div>
+  <ul class="tips"><li>Drži svih pet u jednoj bilješci. Ujutro odabereš dan, kopiraš, objaviš.</li><li>Sve ključne riječi stavi u istu automatizaciju, da svaka šalje isti link.</li></ul>
+</article>
+<article class="pcard" id="p09">
+  <div class="pcard-head">
+    <span class="step-num">09</span>
+    <div><h3>Nađi ključnu riječ</h3><p class="muted">Prije svake objave ili priče koja od ljudi traži da napišu riječ.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Što šalje, što tvoja publika želi postati, jezik na kojem piše i ključne riječi koje već koristiš.</span></li><li><span>Dobivaš</span><span>Deset kandidata provjerenih prema četiri pravila, sigurni tipfeleri za dodavanje i gotovi retci.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="09" type="button">Kopiraj prompt 09</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Treba mi ključna riječ koju će ljudi napisati da od mene dobiju
+[STVAR].
+Što moja publika želi postati: [NJIHOVIM RIJEČIMA]
+Jezik na kojem pišu: [JEZIK]
+Ključne riječi koje već koristim: [RIJEČI ili „nema”]
+
+Daj mi 10 novih kandidata. Svakog ocijeni s da ili ne prema ovome:
+1. Lako se piše na mobitelu: jedna riječ, najviše 8 slova, bez
+   kvačica i drugih dijakritičkih znakova i bez posebnih slova.
+2. Ne bi se pojavila u običnom komentaru poput „ovo mi se sviđa” ili
+   „meni nije uspjelo”.
+3. Imenuje ono što žele, a ne ono čega se srame.
+   (LEAN, a ne FAT. READY, a ne STUCK.)
+4. Bonus, samo kad treba razbiti izjednačenje: kad je napišu, to im
+   je kao malo obećanje sebi.
+
+Zatim, za najbolje 3:
+- tipfelere koje će ljudi napisati. Svaki provjeri i prema pravilu 2
+  i izostavi svaki koji bi se mogao pojaviti u običnom komentaru
+  (uključujući ono u što bi ga pretvorio automatski ispravak).
+- redak za objavu: „Napiši &lt;ključna riječ&gt; za &lt;stvar&gt;.”
+- redak za priču: „Odgovori &lt;ključna riječ&gt; i poslat ću ti &lt;stvar&gt;.”</pre>
+  </div>
+  <ul class="tips"><li>Krivo napisana ključna riječ ne šalje ništa, a osoba misli da je ignoriraš. Sigurne tipfelere dodaj u istu automatizaciju.</li><li>Izmjenjuj tri do pet ključnih riječi. Ista riječ svaki dan presuši za nekoliko tjedana (sustav 05, lekcija 22).</li></ul>
+</article><h2 class="grp" id="g-replies">Poruke</h2><p class="grp-desc">Poruke koje šalju obećano, javljaju se ponovno i otvaraju razgovor.</p>
+<article class="pcard" id="p10">
+  <div class="pcard-head">
+    <span class="step-num">10</span>
+    <div><h3>Poruka koja šalje obećano</h3><p class="muted">Kad postavljaš ili popravljaš automatizaciju za komentare (sustav 05).</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Poziv iz tvoje objave od riječi do riječi, što im to donosi, naslov stranice i, po želji, druga ponuda.</span></li><li><span>Dobivaš</span><span>Poruka, dva gumba, osam javnih odgovora i provjera poklapaju li se riječi.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="10" type="button">Kopiraj prompt 10</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Napiši tekstove za moju automatizaciju komentara.
+
+Poziv u mojoj objavi, od riječi do riječi: [TVOJ POZIV]
+   (na primjer: Napiši SEEN za kontrolnu listu u 5 koraka)
+Što im to donosi, u jednom retku: [JEDAN REDAK]
+Naslov stranice koju link otvara: [NASLOV STRANICE]
+Drugi gumb: [DRUGA PONUDA I NJEZINA CIJENA ili „nema”]
+
+Daj mi:
+1. Privatnu poruku, samo dva retka. Prvi redak imenuje ono što su
+   tražili, točnim riječima iz moje objave. Drugi redak kaže što im
+   to donosi, prema mom jednom retku.
+2. Gumb 1: najviše 20 znakova, na primjer „Otvori”.
+3. Gumb 2, ako postoji: najviše 20 znakova, jednostavno, s cijenom,
+   na primjer „Cijeli paket, 8 €”. Ništa poput „OTKLJUČAJ” ili
+   „TAJNA”. Prebroji znakove, uključujući razmake.
+4. Osam javnih odgovora, svaki od najviše 6 riječi, svi različiti,
+   koji im kažu da provjere poruke.
+5. Tablicu za provjeru s po jednim retkom za moju objavu, poruku i
+   naslov stranice. U svakom retku pokaži naziv stvari onako kako se
+   tamo pojavljuje. Ako se neki redak ne poklapa, napiši ispravljenu
+   verziju.
+- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako
+  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne
+  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj
+  proizvod radi.</pre>
+  </div>
+  <ul class="tips"><li>Ako se riječi promijene između objave i stranice, ljudi misle da su krivo kliknuli i odu (sustav 05, lekcija 16). Tablica na kraju to hvata.</li><li>Dva gumba, nikad tri. Tri izgledaju kao jelovnik, a jelovnik je odluka.</li></ul>
+</article>
+<article class="pcard" id="p11">
+  <div class="pcard-head">
+    <span class="step-num">11</span>
+    <div><h3>Druga poruka</h3><p class="muted">Netko je već dobio tvoj link, nije kupio i vraća se.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Tvoja ponuda, prva poruka koju su dobili, što ih koči i iskren odgovor na to te stvarni kupon ili „nema”.</span></li><li><span>Dobivaš</span><span>Tri toplije druge poruke i poruke s kuponom, ako ga imaš.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="11" type="button">Kopiraj prompt 11</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Neki ljudi dobiju moj link, pogledaju i ne kupe. Kasnije opet napišu
+moju ključnu riječ u komentar. Napiši poruku koju dobiju drugi put.
+
+Moja ponuda i cijena: [JEDAN REDAK]
+Prva poruka koju su već dobili: [ZALIJEPI JE]
+Ova poruka šalje: [ŠTO GUMB OTVARA]
+Istinite stvari kojih nije bilo u prvoj poruci: [1 DO 3 STVARI]
+Što mislim da ih koči: [JEDNA STVAR, npr. cijena ili vrijeme]
+Iskren odgovor na to: [ŠTO JE ISTINA]
+Stvarni kupon: [KOD, IZNOS, DATUM ISTEKA S GODINOM ili „nema”]
+Ako je netko već platio punu cijenu, napravit ću ovo:
+   [npr. vratiti razliku ili „nema”]
+
+Daj mi tri verzije. Svaka:
+- jasno kaže da su ovo već vidjeli
+- dodaje jednu istinitu stvar s mog popisa (u svakoj verziji drugu,
+  ako ih ima tri)
+- odgovara na ono što ih koči, mojim iskrenim odgovorom
+- ima najviše 4 rečenice, plus jedan gumb od najviše 20 znakova
+
+Ako postoji kupon, napiši i:
+- poruku s kuponom: kod, iznos, datum isteka, jedan gumb. Provjeri
+  odgovara li dan u tjednu datumu. Ako ne odgovara, reci mi i izostavi
+  dan iz poruke.
+- ljubazan odgovor za nekoga tko odgovori „Već imam”: zahvali, ponudi
+  ono što je gore navedeno i pitaj za e-mail adresu kojom je plaćeno.
+
+Pravila: toplije od prve poruke, nikad nametljivije. Bez izmišljenih
+rokova. Kupon ne stavljaj u tri glavne verzije.
+- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako
+  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne
+  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj
+  proizvod radi.</pre>
+  </div>
+  <ul class="tips"><li>Besplatni ManyChat plan nema oznake, pa ove poruke drži u bilješkama i šalji ih ručno. Na plaćenom planu idu u granu „već komentirao” (sustav 05, lekcija 23).</li><li>Stani na drugoj poruci. Netko tko četiri puta komentira i ne kupi govori ti nešto o ponudi.</li></ul>
+</article>
+<article class="pcard" id="p12">
+  <div class="pcard-head">
+    <span class="step-num">12</span>
+    <div><h3>Odgovor koji otvara razgovor</h3><p class="muted">Svaki dan, za komentare, izravne poruke i nove pratitelje.</p></div>
+  </div>
+  <ul class="facts"><li><span>Upisuješ</span><span>Što je stiglo, što su napisali, tvoja ponuda, činjenice o kojima ljudi pitaju i tvoja ključna riječ.</span></li><li><span>Dobivaš</span><span>Tri kratka odgovora: jedan koji uzvraća pitanjem, jedan za pitanja o kupnji i jedan koji samo pozdravlja.</span></li></ul>
+  <div class="pbox">
+    <div class="pbar"><button class="btn btn-cream btn-small copy" data-num="12" type="button">Kopiraj prompt 12</button></div>
+    <pre>[zalijepi svoju DATOTEKU GLASA]
+[zalijepi svoj BLOK PUBLIKE]
+
+Pomozi mi odgovoriti na ovo.
+Stiglo je kao: [JEDNO OD: KOMENTAR, PORUKA, NOVI PRATITELJ]
+Što su napisali ili njihov profil u jednom retku: [ZALIJEPI]
+Što nudim: [PONUDA I CIJENA]
+Činjenice o kojima ljudi pitaju: [2 ILI 3, npr. koliko traje]
+Moja ključna riječ ili link: [RIJEČ ILI LINK]
+
+Daj mi tri odgovora, svaki od najviše 35 riječi, svaki s najviše
+jednim pitanjem:
+1. Prvo odgovara na ono što su rekli, zatim postavlja jedno lako
+   pitanje na koje mogu odgovoriti s nekoliko riječi.
+2. Ako su pitali što je to, koliko košta ili kako do toga doći:
+   jednostavan odgovor s ponudom i cijenom u jednoj rečenici i mojom
+   ključnom riječi ili linkom. Ako nisu pitali, napiši „ne treba”.
+3. Kratak, ljudski odgovor koji ih samo pozdravi.
+
+Pravila:
+- Nikad ništa ne nudi ako nisu pitali.
+- Ako moje činjenice ne odgovaraju na njihovo pitanje, reci da ću
+  provjeriti. Ne nagađaj.
+- Zvuči kao osoba na mobitelu, a ne kao brand.
+- Za novog pratitelja: zahvali mu i pitaj što ga je dovelo ovamo.
+  Bez linka.
+- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako
+  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne
+  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj
+  proizvod radi.</pre>
+  </div>
+  <ul class="tips"><li>Dok ti je profil malen, svaki komentar dobiva odgovor. To je jedino razdoblje u životu tvog profila kad je to moguće (sustav 01, lekcija 19).</li><li>Mali proizvodi prodaju se u razgovorima. Netko tko odgovori „što je to?” već je podigao ruku.</li></ul>
+</article></section>
+</div></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer class="site-footer"><div class="wrap footer-grid"><div class="footer-brand"><a class="wordmark" href="/">MojBiznis.online</a><p>Samo za tvoju upotrebu. Molim te, nemoj dijeliti ovu stranicu.</p></div>
+<nav class="footer-links"><a href="mailto:kontakt@mojbiznis.online">kontakt@mojbiznis.online</a><a href="/privatnost">Politika privatnosti</a><a href="/uvjeti">Uvjeti korištenja</a><span>© 2026 MojBiznis.online</span></nav></div></footer>
+<script>
+(function(){
+  var PROMPTS = [{"num": "01", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nNapiši opis objave za ovaj reel.\n\nTekst na ekranu, redom: [RETCI KOJI SE POJAVLJUJU NA EKRANU]\nPitanje na koje ovaj reel odgovara: [JEDNA REČENICA]\nJoš nešto istinito što mogu iskoristiti: [DETALJ, BROJ ili „nema”]\nKljučna riječ: [RIJEČ ili „nema”]\nŠalje: [BESPLATNA STVAR, RIJEČIMA KOJE UVIJEK KORISTIŠ]\n\nPravila:\n- Prvi redak je druga udica, za nekoga tko je zastao na videu i sad\n  čita. Ne ponavljaj prvi redak s ekrana. Najviše 12 riječi.\n- Zatim 3 do 6 kratkih rečenica koje dovršavaju misao, bez\n  ponavljanja onoga što je već na ekranu. Svaka rečenica treba\n  potaknuti čitanje sljedeće.\n- Zadnja rečenica: „Napiši <ključna riječ> za <besplatna stvar>”, s\n  mojim točnim riječima za besplatnu stvar. Ako je ključna riječ\n  „nema”, umjesto toga završi pitanjem na koje se može odgovoriti\n  jednom ili dvjema riječima.\n- Hashtagovi idu u zaseban redak nakon toga, najviše 3.\n- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako\n  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne\n  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj\n  proizvod radi.\n\nDaj mi dvije verzije. Ispod svake navedi rečenicu na kojoj će\nčitatelj najvjerojatnije stati i kako je popraviti.\nZatim napiši jedan redak od najviše 7 riječi koji traži komentar,\nza prikaz na ekranu u zadnje dvije sekunde reela."}, {"num": "02", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nŽelim pokazati dokaz da znam svoj posao, a moje područje je:\n[TVOJE PODRUČJE]. Ne prihod i ne snimke zaslona s novcem. Dokaz u\nsamoj stvari.\nKljučna riječ: [RIJEČ]   Šalje: [STVAR]\n\n1. korak: Navedi 10 vrsta dokaza koje netko u mom području može\npokazati. Za svaku reci kako je snimiti ili fotografirati bez mog\nlica: ruke, predmeti, gotov rezultat, ekran, mjesto.\nZatim stani i pričekaj da jednu odaberem.\n\n2. korak: Kad odaberem, reći ću ti što fotografija ili video pokazuje\ni što se stvarno dogodilo. Ako bi pomogao broj, a broja nema, pitaj\nme prije nego što počneš pisati. Zatim napiši:\n- prvi redak na ekranu, najviše 7 riječi\n- opis od 4 do 7 rečenica: što gledaju, što se dogodilo i zašto je\n  to važno nekome poput moje publike\n- zatim zadnji redak: „Napiši <ključna riječ> za <stvar>.”\n\nPravila:\n- Malo i točno pobjeđuje veliko i okruglo. „Troje ljudi u dva tjedna”\n  bolje je od „puno ljudi”.\n- Ako ti dam nešto što je rekao kupac, prvo napiši sažetak u jednom\n  retku, zatim citat.\n- Ne obećavaj čitatelju isti rezultat.\n- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako\n  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne\n  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj\n  proizvod radi."}, {"num": "03", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nNapiši objavu koja jasno kaže što prodajem.\nBez podučavanja, bez priče.\n\nNaziv proizvoda, kako ga ja pišem: [NAZIV]\nŠto im pomaže postići (ne novac): [JEDAN REDAK]\nŠto sadrži: [3 STVARI]\nCijena: [CIJENA]\nZa koga je, prema njihovoj situaciji: [JEDAN REDAK]\nKljučna riječ: [RIJEČ]\nŠalje: [ŠTO LINK OTVARA, npr. stranicu za kupnju]\nStvarni rok ili limit: [ISTINIT DATUM ILI OGRANIČENJE ili „nema”]\n\nTekst na ekranu: 4 kratka retka u ovom obliku. Skrati moje podatke\nda stanu, ali naziv proizvoda i cijenu ostavi točno kako su napisani.\n„Želiš <što im pomaže postići>?\n<Naziv proizvoda>: <stvar 1>, <stvar 2> i <stvar 3>.\n<Cijena>.\nNapiši <ključna riječ> za <ono što šalje>.”\n\nZatim opis od 3 do 5 rečenica koji kaže za koga je i završava istim\npozivom. Zatim dvije druge verzije prvog retka na ekranu.\n\nPravila:\n- Za koga je, reci prema njihovoj situaciji („za ljude koji peku\n  između smjena”), nikad prema problemu ili osjećaju. Bez „Nemaš\n  novca?”, „Mučiš li se s…?” ili „Dosta ti je…?”.\n- Bez obećanja prihoda. Bez „zajamčeno”, „pasivno” ili „lak novac”.\n- Ako je rok „nema”, ne dodaj nikakvu hitnost.\n- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako\n  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne\n  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj\n  proizvod radi."}, {"num": "04", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nSvako područje ima teme koje ljudi javno izbjegavaju: stvarna cijena,\nkoliko često ne uspije, koliko stvarno traje, što se ne može\nnapraviti, za koga nije i što su ljudi u tom području radili krivo\nprije nego što su počeli raditi kako treba.\n\nMoje područje: [TVOJE PODRUČJE]   Moja država: [DRŽAVA]\n\nNavedi 15 takvih tema. Za svaku daj:\n- temu, u jednom retku\n- strah moje publike na koji tema odgovara, jednostavnim riječima\n- prvi slajd, najviše 7 riječi, bez brojeva\n- što trebam podijeliti da bude iskreno (priču, broj, grešku),\n  napisano kao pitanje na koje mogu odgovoriti\n\nPoredaj ih od najlakše do najteže za objavu.\nZatim po broju navedi 3 o kojima moja publika najviše želi čuti.\nDaj rezultat kao tablicu.\n\nPravila:\n- Ne navodi cijene, pravila ni zakone kao činjenice. Ako tema dira u\n  zakon, reci to i pusti mene da provjerim.\n- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako\n  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne\n  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj\n  proizvod radi."}, {"num": "05", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nPretvori ovo u karusel.\n\nPitanje na koje odgovara: [JEDNA REČENICA]\nMoj odgovor, u grubim bilješkama: [BILJEŠKE, NEUREDNE KOLIKO HOĆEŠ]\nKljučna riječ: [RIJEČ]   Šalje: [STVAR]\n\nPravila:\n- Ukupno 6 do 10 slajdova. Nikad više od 10.\n- Slajd 1: prvi redak, najviše 7 riječi. Imenuje njihovu situaciju,\n  ne moju temu.\n- Slajd 2 ima jedan posao: da opet povuku dalje. Ovdje ne počinji\n  objašnjavati. Upotrijebi obećanje, iznenađenje ili ono što ih košta\n  ako to ne znaju.\n- Zatim jedna poanta po slajdu, najviše 25 riječi. Ako moje bilješke\n  imaju više koraka nego što stane, spoji male i reci mi koje.\n- Zadnji slajd: „Napiši <ključna riječ> za <stvar>.”\n- Opis: 2 do 4 rečenice, završava istim pozivom.\n- Ako bi čitatelju trebao korak ili broj kojeg nema u mojim\n  bilješkama, nemoj stati da me pitaš. Na tom slajdu napiši\n  „NEDOSTAJE:” i što nedostaje, i nemoj to sam popunjavati.\n- Koristi samo činjenice iz mojih bilješki i mojih dviju datoteka.\n  Nikad ne izmišljaj brojke, rezultate ni citate.\n\nDaj rezultat slajd po slajd, zatim opis, zatim popis svega što je\noznačeno s NEDOSTAJE."}, {"num": "06", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nPretvori moju priču u karusel.\n\nPitanje koje moja publika postavlja: [JEDNA REČENICA]\nŠto se dogodilo, grubo i istinito: [TVOJA PRIČA]\nKako je riješeno: [TVOJE RJEŠENJE]\nŠto danas savjetujem drugima: [3 TOČKE, GRUBO]\nKljučna riječ: [RIJEČ]   Šalje: [STVAR]\n\nDevet slajdova:\n- Slajd 1 jasno imenuje neugodan dio, najviše 7 riječi.\n- Slajdovi 2 do 4: što se dogodilo, kratkim rečenicama. Zadrži dio\n  u kojem ne ispadam dobro. Taj dio je razlog za objavu.\n- Slajd 5: kako je riješeno.\n- Slajdovi 6 do 8: 3 točke, po jedna na slajdu.\n- Slajd 9: „Napiši <ključna riječ> za <stvar>.”\n\nOpis, 3 rečenice: zašto ovo dijelim, što se promijenilo i isti poziv.\n\nPravila:\n- Ne čini kraj sretnijim nego što je bio.\n- Ne povezuj moju priču s onim što ključna riječ šalje, osim ako je\n  ta veza već u mojoj priči.\n- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako\n  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne\n  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj\n  proizvod radi."}, {"num": "07", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nNapiši današnju Instagram priču. To je jedna slika s tekstom na njoj.\n\nŠto nudim: [PROIZVOD ILI BESPLATNA STVAR, JEDAN REDAK]\nCijena: [CIJENA ili „besplatno”]\nKljučna riječ: [RIJEČ]\nŠalje: [ŠTO LINK OTVARA, npr. stranicu za kupnju]\nJedna istinita stvar iz ovog tjedna:\n   [PRODAJA, PORUKA, BROJ ili „nema”]\n\nDaj mi:\n1. Pet naslova, najviše 8 riječi. Koristi ove oblike gdje su za mene\n   istiniti: „Ovo radim prvi put”, „Svi ovo koriste za…”, „Da krećem\n   ispočetka…”, „Prijateljska napomena:”, „Savjet za početnike:”. Ako\n   oblik nije istinit, napiši naslov koji umjesto toga imenuje\n   njihovu situaciju.\n2. Jedan blok teksta, od 60 do 110 riječi. Prva rečenica mora samo\n   navesti ljude da pročitaju drugu. U prve dvije rečenice stavi dvije\n   ili tri upadljive riječi, i to samo riječi koje su istinite.\n   Zadrži moje kratke rečenice, ali drži blok na okupu: u priči\n   ljude zaustavi upravo dug blok.\n3. Zadnji redak: „Odgovori <ključna riječ> i poslat ću ti\n   <ono što šalje>.”\n4. Jednu ideju za sliku iz običnog života, bez lica, koja paše.\n\nPravila:\n- Istinitu stvar u tekstu iskoristi točno onako kako je napisana. Ako\n  je riječ o kupcu, ispričaj to kao ono što mi je rekao. Ne tvrdi da\n  je koristio moj proizvod ako to ne piše u mojim podacima i ne\n  obećavaj čitatelju isti rezultat.\n- Ako cijena nije „besplatno”, neka bude jasno da link vodi na kupnju.\n- Ne ispričavaj se što prodaješ. Bez naljepnice s linkom: odgovor je\n  radnja.\n- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako\n  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne\n  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj\n  proizvod radi."}, {"num": "08", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nNapiši pet Instagram priča za ovaj tjedan, jednu dnevno.\n\nŠto nudim i cijena: [JEDAN REDAK]\nŠto sadrži: [3 STVARI]\nŠalje: [ŠTO LINK OTVARA, npr. stranicu za kupnju]\nMoje ključne riječi, sve šalju isti link: [3 DO 5 RIJEČI]\nGlavni razlog zašto ljudi ne kupuju: [JEDAN REDAK ili „ne znam”]\nŠto bi bilo drukčije da krećem ispočetka: [JEDAN REDAK ili „nema”]\nIstinite stvari za upotrebu: [PRODAJE, PORUKE, CITATI ili „nema”]\n\nSvaka priča: naslov (najviše 8 riječi), jedan blok teksta od 60 do\n110 riječi i redak „Odgovori <jedna od mojih ključnih riječi> i poslat\nću ti <ono što šalje>.” Svaku ključnu riječ upotrijebi barem jednom.\nZadrži moje kratke rečenice, ali drži svaki blok na okupu: u priči\nljude zaustavi upravo dug blok.\n\nNeka pet priča bude različito:\n1. Odgovara na glavni razlog zašto ljudi ne kupuju. Ako tamo piše\n   „ne znam”, odaberi najvjerojatniji razlog za moju publiku i reci\n   mi koji.\n2. Jasno kaže što je to, što sadrži i koliko košta.\n3. Koristi jednu istinitu stvar s mog popisa. Citat dobiva sažetak u\n   jednom retku prije njega. Ako na popisu piše „nema”, umjesto toga\n   odgovori na pitanje koje bi moja publika postavila o ponudi.\n4. Naslov „Da krećem ispočetka…”, s onim što bi danas bilo drukčije.\n   Ako tamo piše „nema”, upotrijebi „Savjet za početnike:” sa\n   savjetom uzetim samo iz onoga što je u ponudi.\n5. Jedna mala, konkretna stvar u kojoj ponuda pomaže.\n\nZa svaki dan predloži jednu sliku: običan život, bez lica.\n- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako\n  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne\n  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj\n  proizvod radi.\n\nDaj rezultat kao Dan 1 do Dan 5."}, {"num": "09", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nTreba mi ključna riječ koju će ljudi napisati da od mene dobiju\n[STVAR].\nŠto moja publika želi postati: [NJIHOVIM RIJEČIMA]\nJezik na kojem pišu: [JEZIK]\nKljučne riječi koje već koristim: [RIJEČI ili „nema”]\n\nDaj mi 10 novih kandidata. Svakog ocijeni s da ili ne prema ovome:\n1. Lako se piše na mobitelu: jedna riječ, najviše 8 slova, bez\n   kvačica i drugih dijakritičkih znakova i bez posebnih slova.\n2. Ne bi se pojavila u običnom komentaru poput „ovo mi se sviđa” ili\n   „meni nije uspjelo”.\n3. Imenuje ono što žele, a ne ono čega se srame.\n   (LEAN, a ne FAT. READY, a ne STUCK.)\n4. Bonus, samo kad treba razbiti izjednačenje: kad je napišu, to im\n   je kao malo obećanje sebi.\n\nZatim, za najbolje 3:\n- tipfelere koje će ljudi napisati. Svaki provjeri i prema pravilu 2\n  i izostavi svaki koji bi se mogao pojaviti u običnom komentaru\n  (uključujući ono u što bi ga pretvorio automatski ispravak).\n- redak za objavu: „Napiši <ključna riječ> za <stvar>.”\n- redak za priču: „Odgovori <ključna riječ> i poslat ću ti <stvar>.”"}, {"num": "10", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nNapiši tekstove za moju automatizaciju komentara.\n\nPoziv u mojoj objavi, od riječi do riječi: [TVOJ POZIV]\n   (na primjer: Napiši SEEN za kontrolnu listu u 5 koraka)\nŠto im to donosi, u jednom retku: [JEDAN REDAK]\nNaslov stranice koju link otvara: [NASLOV STRANICE]\nDrugi gumb: [DRUGA PONUDA I NJEZINA CIJENA ili „nema”]\n\nDaj mi:\n1. Privatnu poruku, samo dva retka. Prvi redak imenuje ono što su\n   tražili, točnim riječima iz moje objave. Drugi redak kaže što im\n   to donosi, prema mom jednom retku.\n2. Gumb 1: najviše 20 znakova, na primjer „Otvori”.\n3. Gumb 2, ako postoji: najviše 20 znakova, jednostavno, s cijenom,\n   na primjer „Cijeli paket, 8 €”. Ništa poput „OTKLJUČAJ” ili\n   „TAJNA”. Prebroji znakove, uključujući razmake.\n4. Osam javnih odgovora, svaki od najviše 6 riječi, svi različiti,\n   koji im kažu da provjere poruke.\n5. Tablicu za provjeru s po jednim retkom za moju objavu, poruku i\n   naslov stranice. U svakom retku pokaži naziv stvari onako kako se\n   tamo pojavljuje. Ako se neki redak ne poklapa, napiši ispravljenu\n   verziju.\n- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako\n  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne\n  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj\n  proizvod radi."}, {"num": "11", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nNeki ljudi dobiju moj link, pogledaju i ne kupe. Kasnije opet napišu\nmoju ključnu riječ u komentar. Napiši poruku koju dobiju drugi put.\n\nMoja ponuda i cijena: [JEDAN REDAK]\nPrva poruka koju su već dobili: [ZALIJEPI JE]\nOva poruka šalje: [ŠTO GUMB OTVARA]\nIstinite stvari kojih nije bilo u prvoj poruci: [1 DO 3 STVARI]\nŠto mislim da ih koči: [JEDNA STVAR, npr. cijena ili vrijeme]\nIskren odgovor na to: [ŠTO JE ISTINA]\nStvarni kupon: [KOD, IZNOS, DATUM ISTEKA S GODINOM ili „nema”]\nAko je netko već platio punu cijenu, napravit ću ovo:\n   [npr. vratiti razliku ili „nema”]\n\nDaj mi tri verzije. Svaka:\n- jasno kaže da su ovo već vidjeli\n- dodaje jednu istinitu stvar s mog popisa (u svakoj verziji drugu,\n  ako ih ima tri)\n- odgovara na ono što ih koči, mojim iskrenim odgovorom\n- ima najviše 4 rečenice, plus jedan gumb od najviše 20 znakova\n\nAko postoji kupon, napiši i:\n- poruku s kuponom: kod, iznos, datum isteka, jedan gumb. Provjeri\n  odgovara li dan u tjednu datumu. Ako ne odgovara, reci mi i izostavi\n  dan iz poruke.\n- ljubazan odgovor za nekoga tko odgovori „Već imam”: zahvali, ponudi\n  ono što je gore navedeno i pitaj za e-mail adresu kojom je plaćeno.\n\nPravila: toplije od prve poruke, nikad nametljivije. Bez izmišljenih\nrokova. Kupon ne stavljaj u tri glavne verzije.\n- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako\n  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne\n  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj\n  proizvod radi."}, {"num": "12", "prompt": "[zalijepi svoju DATOTEKU GLASA]\n[zalijepi svoj BLOK PUBLIKE]\n\nPomozi mi odgovoriti na ovo.\nStiglo je kao: [JEDNO OD: KOMENTAR, PORUKA, NOVI PRATITELJ]\nŠto su napisali ili njihov profil u jednom retku: [ZALIJEPI]\nŠto nudim: [PONUDA I CIJENA]\nČinjenice o kojima ljudi pitaju: [2 ILI 3, npr. koliko traje]\nMoja ključna riječ ili link: [RIJEČ ILI LINK]\n\nDaj mi tri odgovora, svaki od najviše 35 riječi, svaki s najviše\njednim pitanjem:\n1. Prvo odgovara na ono što su rekli, zatim postavlja jedno lako\n   pitanje na koje mogu odgovoriti s nekoliko riječi.\n2. Ako su pitali što je to, koliko košta ili kako do toga doći:\n   jednostavan odgovor s ponudom i cijenom u jednoj rečenici i mojom\n   ključnom riječi ili linkom. Ako nisu pitali, napiši „ne treba”.\n3. Kratak, ljudski odgovor koji ih samo pozdravi.\n\nPravila:\n- Nikad ništa ne nudi ako nisu pitali.\n- Ako moje činjenice ne odgovaraju na njihovo pitanje, reci da ću\n  provjeriti. Ne nagađaj.\n- Zvuči kao osoba na mobitelu, a ne kao brand.\n- Za novog pratitelja: zahvali mu i pitaj što ga je dovelo ovamo.\n  Bez linka.\n- Koristi samo činjenice iz ove poruke i mojih dviju datoteka. Ako\n  ti treba činjenica koje ovdje nema, prvo me pitaj. Nikad ne\n  izmišljaj brojke, rezultate, citate ni tvrdnje o tome što moj\n  proizvod radi."}];
+  var KEYS = { voice: 'mb_voice_file', aud: 'mb_audience_block' };
+  var VOICE_PH = "[zalijepi svoju DATOTEKU GLASA]", AUD_PH = "[zalijepi svoj BLOK PUBLIKE]";
+  var v = document.getElementById('voice'), a = document.getElementById('aud'), s = document.getElementById('saved');
+  function get(k){ try { return localStorage.getItem(k) || ''; } catch(e) { return ''; } }
+  function set(k, x){ try { localStorage.setItem(k, x); return true; } catch(e) { return false; } }
+  v.value = get(KEYS.voice); a.value = get(KEYS.aud);
+  function status(){
+    var n = (v.value.trim() ? 1 : 0) + (a.value.trim() ? 1 : 0);
+    s.textContent = n === 2 ? 'Obje datoteke spremljene su u ovom pregledniku. Svaki gumb Kopiraj sada ih umeće umjesto tebe.'
+      : n === 1 ? 'Jedna datoteka je spremljena. Dodaj i drugu, pa će svaki gumb Kopiraj umetnuti obje.'
+      : 'Nije obavezno. Zalijepi ih jednom i svaki gumb Kopiraj stavit će ih u prompt umjesto tebe. Ostaju samo u ovom pregledniku.';
+  }
+  v.addEventListener('input', function(){ set(KEYS.voice, v.value); status(); });
+  a.addEventListener('input', function(){ set(KEYS.aud, a.value); status(); });
+  status();
+  var toast = document.getElementById('toast'), t;
+  function show(msg){ toast.textContent = msg; toast.classList.add('show'); clearTimeout(t); t = setTimeout(function(){ toast.classList.remove('show'); }, 1800); }
+  function copyText(text){
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function(res, rej){
+      var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy') ? res() : rej(); } catch(e) { rej(e); } document.body.removeChild(ta);
+    });
+  }
+  document.querySelectorAll('button.copy').forEach(function(b){
+    b.addEventListener('click', function(){
+      var p = PROMPTS.filter(function(x){ return x.num === b.dataset.num; })[0].prompt;
+      if (v.value.trim()) p = p.replace(VOICE_PH, v.value.trim());
+      if (a.value.trim()) p = p.replace(AUD_PH, a.value.trim());
+      copyText(p).then(function(){ show('Prompt ' + b.dataset.num + ' je kopiran'); }, function(){ show('Kopiranje nije uspjelo. Označi tekst i kopiraj ga ručno.'); });
+    });
+  });
+})();
+</script>
+</body></html>

@@ -1,11 +1,48 @@
 {
   "headers": [
-    { "source": "/d/(.*)",  "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] },
-    { "source": "/ty/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] },
-    { "source": "/p/(.*)",  "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+    {
+      "source": "/d/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/ty/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/p/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
   ],
   "redirects": [
-    { "source": "/privatnost.html", "destination": "/privatnost", "permanent": true },
-    { "source": "/uvjeti.html", "destination": "/uvjeti", "permanent": true }
+    {
+      "source": "/privatnost.html",
+      "destination": "/privatnost",
+      "permanent": true
+    },
+    {
+      "source": "/uvjeti.html",
+      "destination": "/uvjeti",
+      "permanent": true
+    },
+    {
+      "source": "/hvala.html",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
