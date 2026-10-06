@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Tvoje Instagram objave bez pokazivanja lica | MojBiznis</title>
+<title>Tvoje Instagram objave bez pokazivanja lica | MojBiznis.online</title>
 <meta content="Osam kratkih sustava za mali Instagram profil. Bez kamere, bez lica. Svaki ispravlja jednu stvar i završava kontrolnom listom. 8 €." name="description"/>
 <meta content="#332713" name="theme-color"/>
 <meta content="website" property="og:type"/>
 <meta content="https://mojbiznis.online/f/content" property="og:url"/>
-<meta content="Tvoje Instagram objave bez pokazivanja lica | MojBiznis" property="og:title"/>
+<meta content="Tvoje Instagram objave bez pokazivanja lica | MojBiznis.online" property="og:title"/>
 <meta content="Osam kratkih sustava za mali Instagram profil. Bez kamere, bez lica. Svaki ispravlja jednu stvar i završava kontrolnom listom. 8 €." property="og:description"/>
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23581923'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='36' fill='%23EBDDC4'%3EM%3C/text%3E%3C/svg%3E" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -27,6 +27,12 @@
     --rose: #DE8A94;
     --muted: #B3A59C;
     --line: rgba(235, 221, 196, 0.16);
+    /* Dvije nijanse "bijele kave" za svijetle dionice stranice */
+    --latte: #F4E9D8;
+    --latte-2: #E7D2A9;
+    --latte-line: rgba(88, 25, 35, 0.15);
+    --coffee: #2A1E12;
+    --coffee-muted: #7C6A52;
     --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
     --sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
     --max: 1120px;
@@ -134,17 +140,20 @@
   }
 
   /* Dokaz: kvik */
-  .proof { background: var(--espresso-2); }
+  .proof { background: var(--latte); color: var(--coffee); }
+  .proof .eyebrow { color: var(--wine); }
+  .proof h2 { color: var(--espresso); max-width: 13em; }
+  .proof .lead { color: var(--coffee); }
+  .proof .muted { color: var(--coffee-muted); }
   .proof-grid { display: grid; gap: 8px; }
   .proof-grid > div { min-width: 0; }
   @media (min-width: 900px) {
     .proof-grid { grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
     .proof-lead { margin-top: 34px; }
   }
-  .proof h2 { max-width: 13em; }
-  .facts { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--line); }
-  .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
-  .facts span:first-child { color: var(--muted); white-space: nowrap; }
+  .facts { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--latte-line); }
+  .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--latte-line); }
+  .facts span:first-child { color: var(--coffee-muted); white-space: nowrap; }
   .facts span:last-child { text-align: right; }
 
   .shots {
@@ -158,15 +167,15 @@
   }
   .shot { margin: 0; scroll-snap-align: start; }
   .shot a { display: block; border-radius: 14px; }
-  .shot img { width: 100%; height: auto; aspect-ratio: 25 / 26; object-fit: cover; object-position: top center; border-radius: 14px; border: 1px solid var(--line); background: var(--ink); }
+  .shot img { width: 100%; height: auto; aspect-ratio: 25 / 26; object-fit: cover; object-position: top center; border-radius: 14px; border: 1px solid var(--latte-line); background: var(--latte-2); }
   .shot-placeholder {
     display: none; aspect-ratio: 1 / 1;
     align-items: center; justify-content: center; text-align: center;
-    padding: 18px; border: 1.5px dashed rgba(235, 221, 196, 0.38); border-radius: 14px;
-    background: rgba(18, 15, 14, 0.4); color: var(--muted); font-size: 0.9rem; line-height: 1.45;
+    padding: 18px; border: 1.5px dashed rgba(88, 25, 35, 0.3); border-radius: 14px;
+    background: var(--latte-2); color: var(--coffee-muted); font-size: 0.9rem; line-height: 1.45;
   }
   .shot.is-empty .shot-placeholder { display: flex; }
-  .shot figcaption { margin-top: 10px; font-size: 0.9rem; color: var(--muted); }
+  .shot figcaption { margin-top: 10px; font-size: 0.9rem; color: var(--coffee-muted); }
   .proof-close { margin-top: 32px; }
 
   /* Tri koraka */
@@ -218,17 +227,19 @@
   }
 
   /* Za koga */
-  .fit { background: var(--espresso-2); }
+  .fit { background: var(--latte); color: var(--coffee); }
+  .fit .eyebrow { color: var(--wine); }
+  .fit h2 { color: var(--espresso); }
   .fit-grid { display: grid; gap: 18px; margin-top: 44px; }
   @media (min-width: 900px) { .fit-grid { grid-template-columns: 1fr 1fr; gap: 22px; } }
-  .fit-box { padding: 30px 26px; border: 1px solid var(--line); border-radius: 18px; }
-  .fit-box h3 { margin-bottom: 16px; }
+  .fit-box { padding: 30px 26px; border: 1px solid var(--latte-line); border-radius: 18px; background: var(--latte-2); }
+  .fit-box h3 { margin-bottom: 16px; color: var(--espresso); }
   .fit-box ul { list-style: none; margin: 0; padding: 0; }
-  .fit-box li { position: relative; padding: 10px 0 10px 26px; border-top: 1px solid var(--line); }
+  .fit-box li { position: relative; padding: 10px 0 10px 26px; border-top: 1px solid rgba(88, 25, 35, 0.18); }
   .fit-box li:first-child { border-top: 0; }
   .fit-box li::before { content: ""; position: absolute; left: 2px; top: 1.15em; width: 9px; height: 9px; border-radius: 50%; }
-  .fit-yes li::before { background: var(--rose); }
-  .fit-no li::before { border: 1.5px solid var(--muted); }
+  .fit-yes li::before { background: var(--wine); }
+  .fit-no li::before { border: 1.5px solid var(--coffee-muted); }
 
   /* Završni poziv */
   .final { background: var(--wine); text-align: center; }
@@ -266,11 +277,12 @@
 
   .guarantee {
     display: grid; gap: 18px; margin-top: 44px; padding: 32px 26px;
-    border-radius: 18px; background: var(--wine-card);
+    border-radius: 18px; background: var(--wine-card); color: var(--cream);
   }
   @media (min-width: 900px) { .guarantee { grid-template-columns: 1fr 1.4fr; padding: 44px; gap: 48px; } }
   .guarantee p { margin: 0 0 12px; }
   .guarantee p:last-child { margin-bottom: 0; }
+  .guarantee .muted { color: var(--muted); }
 
   .faq { margin-top: 40px; border-top: 1px solid var(--line); }
   .faq details { border-bottom: 1px solid var(--line); }
@@ -308,7 +320,7 @@
 <a class="skip" href="#main">Preskoči na sadržaj</a>
 <header class="site-header">
 <div class="wrap">
-<a class="wordmark" href="/">MojBiznis</a>
+<a class="wordmark" href="/">MojBiznis.online</a>
 <nav aria-label="Glavni sadržaj" class="header-links">
 <a class="plain" href="#inside">Što je unutra</a>
 <a class="btn btn-primary btn-small buy" href="https://buy.stripe.com/28E6oJ7OLh0V8K82k4fUQ06?locale=hr">Uzmi ga — 8 €</a>
@@ -536,14 +548,14 @@
 <footer class="site-footer">
 <div class="wrap footer-grid">
 <div class="footer-brand">
-<a class="wordmark" href="/">MojBiznis</a>
-<p>Digitalni proizvodi za ljude koji rade od 9 do 5.<br>MojBiznis je brend obrta Kvik iz Hrvatske.</p>
+<a class="wordmark" href="/">MojBiznis.online</a>
+<p>Digitalni proizvodi za ljude koji rade od 9 do 5.<br>MojBiznis.online je brend obrta Kvik iz Hrvatske.</p>
 </div>
 <nav aria-label="Podnožje" class="footer-links">
 <a href="mailto:kontakt@mojbiznis.online">kontakt@mojbiznis.online</a>
 <a href="/privatnost">Politika privatnosti</a>
 <a href="/uvjeti">Uvjeti korištenja</a>
-<span>© 2026 MojBiznis</span>
+<span>© 2026 MojBiznis.online</span>
 </nav>
 </div>
 </footer>
